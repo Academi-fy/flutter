@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/screens/chat_list.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
 class Welcome extends StatelessWidget {
