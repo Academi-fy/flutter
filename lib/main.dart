@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'rotteck-messenger',
       theme: lightMode,
-      darkTheme: darMode,
+      darkTheme: darkMode,
       home: Login(),
     );
   }

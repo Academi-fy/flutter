@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppHeading extends StatelessWidget {
   final String text;
   final String? caption;
   final double size;
+  final double captionSize;
   final Image? image;
   final List<double> offset;
 
@@ -12,47 +12,43 @@ class AppHeading extends StatelessWidget {
       {super.key,
       required this.text,
       this.caption,
-      this.size = 30,
+      this.size = 40,
+      this.captionSize = 15,
       this.image,
       this.offset = const [190.0, -15]});
 
   @override
   Widget build(BuildContext context) {
-    Color colorPrimary = Colors.white;
-    Color colorSecondary = AppColors.blackText;
+    Color colorPrimary = Theme.of(context).colorScheme.inversePrimary;
+    Color colorSecondary = Theme.of(context).colorScheme.onPrimary;
 
-    return Stack(
-      clipBehavior: Clip.none,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        Text(
+          text,
+          textAlign: TextAlign.start,
+          style: TextStyle(
+              color: colorPrimary,
+              fontWeight: FontWeight.bold,
+              fontSize: size,
+              height: 1.2),
+        ),
+        Row(
           children: [
-            Text(
-              text,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  color: colorPrimary,
-                  fontWeight: FontWeight.bold,
-                  fontSize: size,
-                  height: 1.2),
-            ),
-            const SizedBox(
-              height: 5,
-            ),
             Text(
               caption != null ? caption! : "",
               textAlign: TextAlign.start,
               style: TextStyle(
                   color: colorSecondary,
                   fontWeight: FontWeight.w500,
-                  fontSize: (size / 2)),
+                  fontSize: captionSize),
             ),
+            const SizedBox(
+              width: 20,
+            ),
+            if (image != null) SizedBox(width: 60, child: image!),
           ],
-        ),
-        Positioned(
-          left: offset[0],
-          top: offset[1],
-          child: image != null ? image! : SizedBox(),
         ),
       ],
     );

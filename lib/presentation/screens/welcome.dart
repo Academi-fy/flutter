@@ -10,7 +10,7 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blackPrimary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,
@@ -23,9 +23,8 @@ class Welcome extends StatelessWidget {
                 child: AppHeading(
                   text: "Anmeldung\nErfolgreich",
                   caption:
-                      "du kannst den Messenger jetzt\nmit deinem WebUntis-Konto\nverwenden",
+                      "du kannst den Messenger jetzt\nmit deinem WebUntis-Konto\nverwenden.",
                   image: Image.asset("assets/images/party_emoji.png"),
-                  offset: [130, -30],
                 ),
               ),
               const SizedBox(
@@ -37,10 +36,10 @@ class Welcome extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const Text(
+              Text(
                 "Linus Bung",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                     fontSize: 35,
                     fontWeight: FontWeight.w600),
               ),
@@ -50,7 +49,7 @@ class Welcome extends StatelessWidget {
               Text(
                 "K2A24",
                 style: TextStyle(
-                    color: AppColors.blackText,
+                    color: Theme.of(context).colorScheme.onBackground,
                     fontSize: 20,
                     fontWeight: FontWeight.w500),
               ),

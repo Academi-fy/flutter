@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/screens/welcome.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_plain_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_textfield.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
@@ -21,7 +20,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: AppColors.blackPrimary,
+      backgroundColor: Theme.of(context).colorScheme.primary,
       body: Center(
         child: Container(
           alignment: Alignment.center,
@@ -31,7 +30,7 @@ class Login extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Spacer(),
-              Expanded(
+              Flexible(
                 child: Row(
                   children: [
                     SizedBox(

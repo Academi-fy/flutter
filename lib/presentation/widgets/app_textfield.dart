@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -21,26 +20,31 @@ class AppTextField extends StatelessWidget {
       alignment: Alignment.center,
       height: 60,
       decoration: BoxDecoration(
-          color: AppColors.blackSecondary,
+          color: Theme.of(context).colorScheme.background,
+          border: Border.all(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(15)),
       child: TextField(
         controller: controller,
         obscureText: obscureText,
         autocorrect: false,
         enableSuggestions: false,
-        style: TextStyle(color: Colors.white, fontSize: 14),
+        style: TextStyle(
+            color: Theme.of(context).colorScheme.inversePrimary, fontSize: 14),
         decoration: InputDecoration(
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
             border: InputBorder.none,
             hintText: text,
-            hintStyle: TextStyle(color: AppColors.blackTertiary, fontSize: 14),
+            hintStyle: TextStyle(
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 14,
+            ),
             icon: iconLocation != null
                 ? SvgPicture.asset(
                     iconLocation!,
-                    color: AppColors.blackTertiary,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   )
-                : SizedBox()),
+                : const SizedBox()),
       ),
     );
   }

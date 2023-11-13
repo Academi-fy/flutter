@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppPlainButton extends StatelessWidget {
   final String label;
@@ -15,7 +14,7 @@ class AppPlainButton extends StatelessWidget {
         style: TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.w500,
-            color: AppColors.blackText),
+            color: Theme.of(context).colorScheme.onPrimary),
       ),
     );
   }
