@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppAppBar extends StatelessWidget {
   final String title;
@@ -25,10 +24,10 @@ class AppAppBar extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
-                  color: Colors.white,
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 35,
-                  fontWeight: FontWeight.w700),
+                  fontWeight: FontWeight.w800),
             ),
             const Spacer(),
             if (iconPath != null && onTap != null)
@@ -36,8 +35,9 @@ class AppAppBar extends StatelessWidget {
                   onTap: onTap!,
                   child: SvgPicture.asset(
                     iconPath!,
-                    color: Colors.white,
-                  ))
+                    height: 35,
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  )),
           ],
         ),
         if (searchField && controller != null)
@@ -79,7 +79,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
         curve: Curves.bounceInOut,
         height: focused ? 500 : 45,
         decoration: BoxDecoration(
-            color: AppColors.blackSecondary,
+            color: Theme.of(context).colorScheme.primary,
             borderRadius: BorderRadius.circular(10)),
         child: TextField(
           onEditingComplete: () {
@@ -88,8 +88,10 @@ class _AppSearchFieldState extends State<AppSearchField> {
           },
           textAlignVertical: TextAlignVertical.center,
           controller: widget.controller,
-          style: const TextStyle(
-              fontSize: 14, color: Colors.white, fontWeight: FontWeight.w500),
+          style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.inversePrimary,
+              fontWeight: FontWeight.w500),
           decoration: InputDecoration(
               isDense: true,
               border: InputBorder.none,
@@ -98,12 +100,12 @@ class _AppSearchFieldState extends State<AppSearchField> {
                 padding: const EdgeInsets.all(11),
                 child: SvgPicture.asset(
                   "assets/icons/Magnifer.svg",
-                  color: AppColors.blackTertiary,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
               hintText: "Suchen",
               hintStyle: TextStyle(
-                  color: AppColors.blackTertiary,
+                  color: Theme.of(context).colorScheme.onPrimary,
                   fontSize: 14,
                   fontWeight: FontWeight.w500)),
         ),

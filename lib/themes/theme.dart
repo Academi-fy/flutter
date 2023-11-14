@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 ThemeData lightMode = ThemeData(
     fontFamily: "Manrope",
     brightness: Brightness.light,
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Color(0xFF000000),
+    ),
     colorScheme: const ColorScheme.light(
       background: Color(0xFFFFFFFF),
       primary: Color(0xFFF2F1F6),
@@ -17,6 +20,9 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
     fontFamily: "Manrope",
     brightness: Brightness.dark,
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Color(0xFFF2F1F6),
+    ),
     colorScheme: const ColorScheme.dark(
       background: Color(0xFF000000),
       primary: Color(0xFF141414),
@@ -25,5 +31,6 @@ ThemeData darkMode = ThemeData(
       inversePrimary: Color(0xFFFFFFFF),
       onBackground: Color(0xFF464646),
     ),
+    focusColor: const Color(0xFFF2F1F6),
     highlightColor: const Color(0xFFE45C5C),
     indicatorColor: const Color(0xFFE01717));

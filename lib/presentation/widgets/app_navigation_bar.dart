@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppNavigationBar extends StatefulWidget {
   final int currentIndex;
@@ -23,60 +22,57 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        _appBarIconBuilder("assets/icons/ChatRoundBold.svg",
-            "assets/icons/ChatRound.svg", 0, "Chats", 110.0),
-        _appBarIconBuilder("assets/icons/LetterBold.svg",
-            "assets/icons/Letter.svg", 1, "Inbox", 105.0),
-        _appBarIconBuilder("assets/icons/SettingsBold.svg",
-            "assets/icons/Settings.svg", 2, "Einstellungen", 150,
-            animationDuration: const Duration(milliseconds: 600)),
-      ],
+    return Container(
+      padding: const EdgeInsets.all(0),
+      decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.background,
+          border: Border.all(color: Theme.of(context).colorScheme.outline)),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _appBarIconBuilder("assets/icons/ChatRoundBold.svg", 0, "Chats"),
+          _appBarIconBuilder("assets/icons/LibraryBold.svg", 1, "Blackboards"),
+          _appBarIconBuilder("assets/icons/SignpostBold.svg", 2, "AGs"),
+          _appBarIconBuilder(
+              "assets/icons/Widget6Bold.svg", 3, "Einstellungen"),
+        ],
+      ),
     );
   }
 
-  Widget _appBarIconBuilder(String iconPath, String iconDeselected, int index,
-      String label, double widthExpanded,
-      {Duration animationDuration = const Duration(milliseconds: 400)}) {
+  Widget _appBarIconBuilder(String iconPath, int index, String label,
+      {bool notification = false}) {
     bool isSelected = index == _currentIndex;
     return GestureDetector(
       onTap: () {
         _setIndex(index);
         widget.navItemTapped;
       },
-      child: AnimatedContainer(
-        width: isSelected ? widthExpanded : 54,
-        duration: animationDuration,
-        curve: Curves.easeInOutBack,
-        decoration: BoxDecoration(
-            color: isSelected ? AppColors.highlight : AppColors.blackPrimary,
-            borderRadius: BorderRadius.circular(30)),
+      child: Container(
         child: Padding(
           padding: const EdgeInsets.all(15),
-          child: Row(
-            mainAxisSize: MainAxisSize.max,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               SvgPicture.asset(
-                isSelected ? iconPath : iconDeselected,
-                color: Colors.white,
+                iconPath,
+                color: isSelected
+                    ? Theme.of(context).highlightColor
+                    : Theme.of(context).colorScheme.onBackground,
               ),
-              SizedBox(
-                width: isSelected ? 10 : 0,
+              const SizedBox(
+                height: 5,
               ),
-              isSelected
-                  ? Text(
-                      label,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600),
-                    )
-                  : const SizedBox(
-                      width: 0,
-                    )
+              Text(
+                label,
+                style: TextStyle(
+                    color: isSelected
+                        ? Theme.of(context).highlightColor
+                        : Theme.of(context).colorScheme.onBackground,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600),
+              )
             ],
           ),
         ),

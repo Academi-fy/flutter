@@ -31,46 +31,30 @@ class Login extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.8,
               width: MediaQuery.of(context).size.width * 0.8,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const Spacer(),
-                  Flexible(
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 20,
-                        ),
-                        AppHeading(
-                          text: "Willkommen",
-                          caption:
-                              "bitte melde dich mit deinen\nNutzerdaten an",
-                          image:
-                              Image.asset("assets/images/handwave_emoji.png"),
-                        ),
-                      ],
-                    ),
+                  AppHeading(
+                    text: "Willkommen",
+                    caption: "bitte melde dich mit deinen\nNutzerdaten an",
+                    image: Image.asset("assets/images/handwave_emoji.png"),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  Flexible(
-                      child: AppTextField(
-                          text: "Benutzername",
-                          controller: _usernameController)),
+                  const Spacer(),
+                  AppTextField(
+                      text: "Benutzername", controller: _usernameController),
                   const SizedBox(
                     height: 20,
                   ),
-                  Flexible(
-                      child: AppTextField(
+                  AppTextField(
                     text: "Passwort",
                     controller: _passController,
                     obscureText: true,
-                  )),
+                  ),
                   const SizedBox(
                     height: 30,
                   ),
-                  Flexible(
-                      child: AppButton(
+                  AppButton(
                     text: "Anmelden",
                     onTap: () {
                       Navigator.push(
@@ -80,12 +64,13 @@ class Login extends StatelessWidget {
                       _logIn;
                     },
                     iconLocation: "assets/icons/AltArrowRight.svg",
-                  )),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
                   AppPlainButton(
                       label: "Passwort vergessen?", onTap: _forgotPass),
+                  const Spacer(),
                 ],
               ),
             ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_app_bar%20(app_search_field).dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_empty_message.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_navigation_bar.dart';
 
 class ChatList extends StatelessWidget {
@@ -22,7 +20,7 @@ class ChatList extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.blackPrimary,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -33,30 +31,20 @@ class ChatList extends StatelessWidget {
                       const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                   child: AppAppBar(
                     title: "Chats",
-                    iconPath: "assets/icons/AddCircle.svg",
+                    iconPath: "assets/icons/AddCircleBold.svg",
                     onTap: appBarItemTapped,
                     searchField: true,
                     controller: searchController,
                   ),
                 ),
               ),
-              const AppEmptyMessage(
-                  message: "Keine Chats gefunden",
-                  action:
-                      "Starte einen neuen Chat über das Plus-Symbol oben rechts."),
-              const Spacer(),
             ],
           ),
         ),
       ),
-      bottomNavigationBar: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-          child: AppNavigationBar(
-            currentIndex: currentIndex,
-            navItemTapped: navItemTapped,
-          ),
-        ),
+      bottomNavigationBar: AppNavigationBar(
+        currentIndex: currentIndex,
+        navItemTapped: navItemTapped,
       ),
     );
   }
