@@ -10,48 +10,42 @@ class AppEmptyMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width * 0.6,
+      width: 250,
       constraints: const BoxConstraints(maxWidth: 300),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          gradient: const LinearGradient(
-              colors: [Color(0xFF302E2E), Colors.transparent],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter)),
+          border: Border.all(color: Theme.of(context).colorScheme.outline),
+          color: Theme.of(context).colorScheme.primary),
       child: Padding(
         padding:
-            const EdgeInsets.only(top: 30, bottom: 30, left: 15, right: 15),
+            const EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Stack(
-              clipBehavior: Clip.none,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  message,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold),
+                Flexible(
+                  child: Text(message,
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800)),
                 ),
-                Positioned(
-                    top: 10,
-                    left: 60,
-                    child: SizedBox(
-                        width: 80,
-                        child:
-                            Image.asset("assets/images/telescope_emoji.png")))
+                Image.asset(width: 50, "assets/images/sad_face_emoji.png"),
               ],
             ),
-            const SizedBox(height: 80),
+            const SizedBox(
+              height: 10,
+            ),
             Text(
               action,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Colors.white,
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                  color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 10,
                   fontWeight: FontWeight.w500),
-            )
+            ),
           ],
         ),
       ),

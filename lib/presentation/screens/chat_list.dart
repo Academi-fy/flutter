@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_app_bar%20(app_search_field).dart';
+import 'package:rotteck_messenger/presentation/widgets/app_empty_message.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_navigation_bar.dart';
 
 class ChatList extends StatelessWidget {
@@ -27,8 +28,8 @@ class ChatList extends StatelessWidget {
             children: [
               Flexible(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding: const EdgeInsets.only(
+                      left: 20, right: 20, bottom: 20, top: 20),
                   child: AppAppBar(
                     title: "Chats",
                     iconPath: "assets/icons/AddCircleBold.svg",
@@ -38,13 +39,21 @@ class ChatList extends StatelessWidget {
                   ),
                 ),
               ),
+              const AppEmptyMessage(
+                  message: "Keine Chats gefunden",
+                  action:
+                      "Starte einen neuen Chat über das Plus-Symbol oben rechts."),
+              const Spacer()
             ],
           ),
         ),
       ),
-      bottomNavigationBar: AppNavigationBar(
-        currentIndex: currentIndex,
-        navItemTapped: navItemTapped,
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.only(bottom: 30),
+        child: AppNavigationBar(
+          currentIndex: currentIndex,
+          navItemTapped: navItemTapped,
+        ),
       ),
     );
   }

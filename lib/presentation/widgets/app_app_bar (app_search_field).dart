@@ -42,7 +42,7 @@ class AppAppBar extends StatelessWidget {
         ),
         if (searchField && controller != null)
           const SizedBox(
-            height: 5,
+            height: 10,
           ),
         if (searchField && controller != null)
           Flexible(child: AppSearchField(controller: controller!))
