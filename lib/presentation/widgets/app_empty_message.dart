@@ -30,7 +30,8 @@ class AppEmptyMessage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.inversePrimary,
                           fontSize: 20,
-                          fontWeight: FontWeight.w800)),
+                          fontFamily: "Inter",
+                          fontWeight: FontWeight.bold)),
                 ),
                 Image.asset(width: 50, "assets/images/sad_face_emoji.png"),
               ],

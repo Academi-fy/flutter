@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_app_bar%20(app_search_field).dart';
+import 'package:rotteck_messenger/presentation/widgets/app_bottom_popup.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_empty_message.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_navigation_bar.dart';
 
@@ -16,8 +17,30 @@ class ChatList extends StatelessWidget {
       currentIndex = index;
     }
 
+    void newGroup() {}
+
+    void newClub() {}
+
+    void newChat() {}
+
     void appBarItemTapped() {
-      print("AppNavItem Tapped...");
+      showModalBottomSheet<int>(
+          backgroundColor: Colors.transparent,
+          context: context,
+          builder: (context) {
+            return AppBottomPopup(children: [
+              PopupItem(
+                  onTap: newChat,
+                  title: "Neuer Chat",
+                  description: "Zum Austausch mit einem Schüler"),
+              PopupItem(
+                onTap: newClub,
+                title: "Neue AG",
+                description: "Zum Austausch innerhalb einer AG",
+                isFancy: true,
+              )
+            ]);
+          });
     }
 
     return Scaffold(
@@ -49,7 +72,7 @@ class ChatList extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.only(bottom: 30),
+        padding: const EdgeInsets.only(bottom: 28),
         child: AppNavigationBar(
           currentIndex: currentIndex,
           navItemTapped: navItemTapped,

@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'rotteck-messenger',
       theme: lightMode,
       darkTheme: darkMode,
+      debugShowCheckedModeBanner: false,
       home: Login(),
     );
   }

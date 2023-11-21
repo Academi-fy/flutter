@@ -21,7 +21,7 @@ ThemeData darkMode = ThemeData(
     fontFamily: "Manrope",
     brightness: Brightness.dark,
     textSelectionTheme: const TextSelectionThemeData(
-      cursorColor: Color(0xFFF2F1F6),
+      cursorColor: Color(0xFF000000),
     ),
     colorScheme: const ColorScheme.dark(
       background: Color(0xFF000000),
