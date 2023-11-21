@@ -17,6 +17,8 @@ class ChatList extends StatelessWidget {
       currentIndex = index;
     }
 
+    void onFilterTapped() {}
+
     void newGroup() {}
 
     void newClub() {}
@@ -33,6 +35,10 @@ class ChatList extends StatelessWidget {
                   onTap: newChat,
                   title: "Neuer Chat",
                   description: "Zum Austausch mit einem Schüler"),
+              PopupItem(
+                  onTap: newGroup,
+                  title: "Neue Gruppe",
+                  description: "Zum Austausch mit mehreren Schülern"),
               PopupItem(
                 onTap: newClub,
                 title: "Neue AG",
@@ -59,6 +65,7 @@ class ChatList extends StatelessWidget {
                     onTap: appBarItemTapped,
                     searchField: true,
                     controller: searchController,
+                    onFilterTapped: onFilterTapped,
                   ),
                 ),
               ),

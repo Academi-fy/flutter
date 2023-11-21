@@ -26,10 +26,12 @@ class AppFancyBox extends StatelessWidget {
     return ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(cornerRadius)),
         child: Stack(children: [
-          Container(
-            width: double.maxFinite,
-            height: 80,
-            decoration: BoxDecoration(gradient: gradient),
+          ClipRRect(
+            child: Container(
+              width: double.maxFinite,
+              height: 80,
+              decoration: BoxDecoration(gradient: gradient),
+            ),
           ),
           ClipRRect(
             child: BackdropFilter(
