@@ -88,7 +88,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
         height: focused ? 500 : 50,
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(10)),
+            borderRadius: BorderRadius.circular(12)),
         child: Row(
           children: [
             Flexible(
@@ -123,7 +123,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
             ),
             if (widget.onFilterTapped != null)
               Container(
-                  padding: const EdgeInsets.all(7),
+                  padding: const EdgeInsets.all(8),
                   child: AppFilterButton(onTap: widget.onFilterTapped!))
           ],
         ),

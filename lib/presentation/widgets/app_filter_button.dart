@@ -17,7 +17,7 @@ class AppFilterButton extends StatelessWidget {
           color: Theme.of(context).highlightColor,
           borderRadius: BorderRadius.circular(8)),
       child: Container(
-        padding: const EdgeInsets.all(6),
+        padding: const EdgeInsets.all(5),
         child: SvgPicture.asset(
           "assets/icons/FilterBold.svg",
           color: Colors.white,
