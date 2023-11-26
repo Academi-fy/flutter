@@ -17,7 +17,5 @@ class User {
     required this.type,
     required this.classes,
     required this.extraCourses,
-    required this.createdAt,
-    required this.updatedAt,
   });
 }

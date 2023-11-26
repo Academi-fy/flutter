@@ -6,8 +6,6 @@ class UserDataModel {
   late String type;
   late List<String> classes;
   late List<String> extraCourses;
-  late DateTime createdAt;
-  late DateTime updatedAt;
 
   UserDataModel({
     required this.id,
@@ -17,8 +15,6 @@ class UserDataModel {
     required this.type,
     required this.classes,
     required this.extraCourses,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory UserDataModel.fromJson(Map<String, dynamic> json) {
@@ -34,8 +30,6 @@ class UserDataModel {
       extraCourses: (json['extra_courses'] as List<dynamic>)
           .map<String>((e) => json[e] as String)
           .toList(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
-      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
   }
 
@@ -48,8 +42,6 @@ class UserDataModel {
       'type': type,
       'classes': classes.map((e) => e.toString()).toList(),
       'extra_courses': extraCourses.map((e) => e.toString()).toList(),
-      'createdAt': createdAt.toIso8601String(),
-      'updatedAt': updatedAt.toIso8601String(),
     };
   }
 }
