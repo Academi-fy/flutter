@@ -1,3 +1,7 @@
+# Hidden .env files containing server adresses, etc.
+
+.env
+
 # Miscellaneous
 *.class
 *.log

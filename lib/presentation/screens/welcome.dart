@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/data/repositories/user_repository_impl.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
 import 'package:rotteck_messenger/domain/entities/user.dart';
+import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 import 'package:rotteck_messenger/presentation/screens/chat_list.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({super.key, this.userId = "35678"});
+  const Welcome({super.key, this.userId = "65595984dd3168b471338c5e"});
   final String userId;
 
   @override
@@ -15,7 +15,7 @@ class Welcome extends StatefulWidget {
 }
 
 class _WelcomeState extends State<Welcome> {
-  final userRepository = getIt<UserRepositoryImpl>();
+  final userRepository = getIt<UserRepository>();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<User>(

@@ -1,19 +1,16 @@
 import 'package:mongo_dart/mongo_dart.dart';
 
 class MongoDBClient {
-  final Db _db;
+  var _db;
 
-  MongoDBClient(String connectionString) : _db = Db(connectionString);
+  final String connectionString;
 
-  Future<void> open() async {
-    await _db.open();
-    print("Connected to MongoDB");
-  }
+  MongoDBClient({required this.connectionString});
 
   Db get database => _db;
 
-  Future<void> close() async {
-    await _db.close();
-    print("Closed connection to MongoDB");
+  connect() async {
+    _db = await Db.create(connectionString);
+    await _db.open();
   }
 }

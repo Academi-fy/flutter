@@ -7,10 +7,12 @@ import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 final getIt = GetIt.instance;
 
 void setupDependencies() {
-  dotenv.load();
+  final connectionString = dotenv.env['MONGODB_SERVER_CONNECTION'];
 
-  final connectionString = dotenv.env['MONGODB_CONNECTION_STRING'];
-  getIt.registerSingleton<MongoDBClient>(MongoDBClient(connectionString!));
+  final db = MongoDBClient(connectionString: connectionString!);
+  db.connect();
+
+  getIt.registerSingleton<MongoDBClient>(db);
   getIt.registerSingleton<UserRepository>(
       UserRepositoryImpl(mongoDBClient: getIt<MongoDBClient>()));
 }

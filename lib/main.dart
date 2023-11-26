@@ -5,7 +5,7 @@ import 'package:rotteck_messenger/presentation/screens/login.dart';
 import 'package:rotteck_messenger/themes/theme.dart';
 
 Future<void> main() async {
-  await dotenv.load();
+  await dotenv.load(fileName: ".env");
   setupDependencies();
 
   runApp(const MyApp());
