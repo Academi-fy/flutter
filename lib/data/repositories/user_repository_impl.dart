@@ -14,7 +14,6 @@ class UserRepositoryImpl implements UserRepository {
   Future<User> getUserById(String userId) async {
     final collection = mongoDBClient.database.collection('users');
     final document = await collection.findOne(where.eq('id', userId));
-    print(document);
 
     if (document == null) {
       throw NotFoundException('User with ID $userId not found');

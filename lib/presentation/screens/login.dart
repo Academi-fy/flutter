@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/presentation/screens/welcome.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_developer_banner.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_plain_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_textfield.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
@@ -76,7 +75,12 @@ class Login extends StatelessWidget {
             ),
             Container(
                 alignment: Alignment.bottomCenter,
-                child: const AppDeveloperBanner()),
+                child: Text(
+                  "Developed with ❤️ by Daniel and Linus",
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontWeight: FontWeight.bold),
+                )),
           ],
         ),
       ),
