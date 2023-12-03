@@ -67,101 +67,46 @@ class PopupItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return isFancy
-        ? GestureDetector(
-            onTap: onTap,
-            child: AppFancyBox(
-              cornerRadius: 20.0,
-              gradient: const LinearGradient(
-                  colors: [Colors.deepPurple, Colors.deepOrange]),
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                              color: isFancy
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .colorScheme
-                                      .inversePrimary),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          description,
-                          style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: isFancy
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .colorScheme
-                                      .inversePrimary),
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    SvgPicture.asset(
-                      "assets/icons/AltArrowRight.svg",
-                      color: isFancy
-                          ? Colors.white
-                          : Theme.of(context).colorScheme.inversePrimary,
-                    )
-                  ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Theme.of(context).colorScheme.background,
+            border: Border.all(color: Theme.of(context).colorScheme.outline)),
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: Theme.of(context).colorScheme.inversePrimary),
                 ),
-              ),
-            ))
-        : GestureDetector(
-            onTap: onTap,
-            child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).colorScheme.background,
-                  border:
-                      Border.all(color: Theme.of(context).colorScheme.outline)),
-              padding: const EdgeInsets.all(20),
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        title,
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                            color:
-                                Theme.of(context).colorScheme.inversePrimary),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        description,
-                        style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w600,
-                            color:
-                                Theme.of(context).colorScheme.inversePrimary),
-                      )
-                    ],
-                  ),
-                  const Spacer(),
-                  SvgPicture.asset(
-                    "assets/icons/AltArrowRight.svg",
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                  )
-                ],
-              ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  description,
+                  style: TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w600,
+                      color: Theme.of(context).colorScheme.inversePrimary),
+                )
+              ],
             ),
-          );
+            const Spacer(),
+            SvgPicture.asset(
+              "assets/icons/AltArrowRight.svg",
+              color: Theme.of(context).colorScheme.inversePrimary,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
