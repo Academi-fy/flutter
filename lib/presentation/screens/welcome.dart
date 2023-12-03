@@ -3,6 +3,7 @@ import 'package:rotteck_messenger/di/dependency_injection.dart';
 import 'package:rotteck_messenger/domain/entities/user.dart';
 import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 import 'package:rotteck_messenger/presentation/screens/chat_list.dart';
+import 'package:rotteck_messenger/presentation/screens/main_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
@@ -75,7 +76,7 @@ class _WelcomeState extends State<Welcome> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ChatList()));
+                                  builder: (context) => const MainView()));
                         })
                   ],
                 ),

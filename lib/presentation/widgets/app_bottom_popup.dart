@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_fancy_box.dart';
 
 class AppBottomPopup extends StatelessWidget {
   const AppBottomPopup({super.key, required this.children});
@@ -72,7 +71,15 @@ class PopupItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: Theme.of(context).colorScheme.background,
+            gradient: isFancy
+                ? LinearGradient(colors: [
+                    Color.fromARGB(255, 112, 28, 127).withOpacity(1),
+                    Color.fromARGB(255, 165, 53, 19).withOpacity(1)
+                  ])
+                : LinearGradient(colors: [
+                    Theme.of(context).colorScheme.background,
+                    Theme.of(context).colorScheme.background,
+                  ]),
             border: Border.all(color: Theme.of(context).colorScheme.outline)),
         padding: const EdgeInsets.all(20),
         child: Row(
@@ -85,7 +92,9 @@ class PopupItem extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w800,
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                      color: isFancy
+                          ? Colors.white
+                          : Theme.of(context).colorScheme.inversePrimary),
                 ),
                 const SizedBox(
                   height: 5,
@@ -95,14 +104,18 @@ class PopupItem extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w600,
-                      color: Theme.of(context).colorScheme.inversePrimary),
+                      color: isFancy
+                          ? Colors.white
+                          : Theme.of(context).colorScheme.inversePrimary),
                 )
               ],
             ),
             const Spacer(),
             SvgPicture.asset(
               "assets/icons/AltArrowRight.svg",
-              color: Theme.of(context).colorScheme.inversePrimary,
+              color: isFancy
+                  ? Colors.white
+                  : Theme.of(context).colorScheme.inversePrimary,
             )
           ],
         ),

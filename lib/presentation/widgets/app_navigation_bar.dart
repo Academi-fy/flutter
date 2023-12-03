@@ -50,7 +50,7 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
     return GestureDetector(
       onTap: () {
         _setIndex(index);
-        widget.navItemTapped;
+        widget.navItemTapped(index);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
