@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_blurred_gradient.dart';
 
 class AppBottomPopup extends StatelessWidget {
   const AppBottomPopup({super.key, required this.children});
@@ -69,55 +70,77 @@ class PopupItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: isFancy
-                ? LinearGradient(colors: [
-                    Color.fromARGB(255, 112, 28, 127).withOpacity(1),
-                    Color.fromARGB(255, 165, 53, 19).withOpacity(1)
-                  ])
-                : LinearGradient(colors: [
-                    Theme.of(context).colorScheme.background,
-                    Theme.of(context).colorScheme.background,
-                  ]),
-            border: Border.all(color: Theme.of(context).colorScheme.outline)),
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800,
+        constraints: const BoxConstraints(maxHeight: 86),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Stack(
+            children: [
+              !this.isFancy
+                  ? Container(
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.background,
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.outline,
+                            width: 1),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    )
+                  : SizedBox(
+                      height: double.infinity,
+                      width: double.infinity,
+                      child: AppBlurredBackground(colors: const [
+                        Colors.black,
+                        Color(0xFFC72988),
+                        Color(0xFF3600FF)
+                      ]),
+                    ),
+              Container(
+                color: Colors.transparent,
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w800,
+                              color: isFancy
+                                  ? Colors.white
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          description,
+                          style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: isFancy
+                                  ? Colors.white
+                                  : Theme.of(context)
+                                      .colorScheme
+                                      .inversePrimary),
+                        )
+                      ],
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(
+                      "assets/icons/AltArrowRight.svg",
                       color: isFancy
                           ? Colors.white
-                          : Theme.of(context).colorScheme.inversePrimary),
+                          : Theme.of(context).colorScheme.inversePrimary,
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  description,
-                  style: TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w600,
-                      color: isFancy
-                          ? Colors.white
-                          : Theme.of(context).colorScheme.inversePrimary),
-                )
-              ],
-            ),
-            const Spacer(),
-            SvgPicture.asset(
-              "assets/icons/AltArrowRight.svg",
-              color: isFancy
-                  ? Colors.white
-                  : Theme.of(context).colorScheme.inversePrimary,
-            )
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

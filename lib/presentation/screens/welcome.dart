@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
 import 'package:rotteck_messenger/domain/entities/user.dart';
 import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
-import 'package:rotteck_messenger/presentation/screens/chat_list.dart';
 import 'package:rotteck_messenger/presentation/screens/main_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({super.key, this.userId = "65595984dd3168b471338c5e"});
+  const Welcome({super.key, this.userId = "656cf418a7b20d606810c92c"});
   final String userId;
 
   @override

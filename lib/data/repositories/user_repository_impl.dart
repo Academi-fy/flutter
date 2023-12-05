@@ -12,21 +12,23 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<User> getUserById(String userId) async {
+    print(await mongoDBClient.database.getCollectionNames());
     final collection = mongoDBClient.database.collection('users');
-    final document = await collection.findOne(where.eq('id', userId));
+    final document =
+        await collection.findOne(where.eq('_id', ObjectId.parse(userId)));
 
     if (document == null) {
       throw NotFoundException('User with ID $userId not found');
     }
-
+    print(document);
     UserDataModel userDataModel = UserDataModel.fromJson(document);
 
     final user = User(
-      id: userDataModel.id,
-      firstName: userDataModel.firstName,
-      lastName: userDataModel.lastName,
+      id: userDataModel.id!,
+      firstName: userDataModel.firstName!,
+      lastName: userDataModel.lastName!,
       avatar: userDataModel.avatar,
-      type: userDataModel.type,
+      type: userDataModel.type!,
       classes: userDataModel.classes,
       extraCourses: userDataModel.extraCourses,
     );
