@@ -18,10 +18,10 @@ class AppBottomPopup extends StatelessWidget {
           boxShadow: [
             BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 30)
           ],
-          color: currentTheme.colorScheme.primary,
-          borderRadius: BorderRadius.circular(40)),
+          color: currentTheme.colorScheme.background,
+          borderRadius: BorderRadius.circular(30)),
       child: Container(
-        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 15),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -78,7 +78,7 @@ class PopupItem extends StatelessWidget {
               !isFancy
                   ? Container(
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.background,
+                        color: Theme.of(context).colorScheme.primary,
                         border: Border.all(
                             color: Theme.of(context).colorScheme.outline,
                             width: 1),
@@ -88,9 +88,9 @@ class PopupItem extends StatelessWidget {
                   : SizedBox(
                       height: double.infinity,
                       width: double.infinity,
-                      child: AppBlurredBackground(brightness: 0.8, drops: [
+                      child: AppBlurredBackground(drops: [
                         Drop(
-                          color: Colors.blue,
+                          color: Color.fromARGB(255, 22, 31, 156),
                           positionX: 0,
                           positionY: 0,
                           width: 0.5,
@@ -98,7 +98,7 @@ class PopupItem extends StatelessWidget {
                           opacity: 0.1,
                         ),
                         Drop(
-                          color: Colors.purple,
+                          color: Color.fromARGB(255, 148, 28, 40),
                           positionX: 1,
                           positionY: 1,
                           width: 0.5,

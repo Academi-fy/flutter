@@ -10,7 +10,7 @@ class AppFilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        minWidth: 50,
+        minWidth: 40,
       ),
       height: double.maxFinite,
       decoration: BoxDecoration(

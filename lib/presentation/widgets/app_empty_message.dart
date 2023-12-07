@@ -36,7 +36,7 @@ class AppEmptyMessage extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 10,
+              height: 15,
             ),
             Text(
               action,
@@ -44,7 +44,7 @@ class AppEmptyMessage extends StatelessWidget {
               style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary,
                   fontSize: 10,
-                  fontWeight: FontWeight.w500),
+                  fontWeight: FontWeight.w600),
             ),
           ],
         ),
