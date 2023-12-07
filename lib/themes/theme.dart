@@ -7,8 +7,8 @@ ThemeData lightMode = ThemeData(
       cursorColor: Color(0xFF000000),
     ),
     colorScheme: const ColorScheme.light(
-      background: Color(0xFFFFFFFF),
-      primary: Color(0xFFF2F1F6),
+      primary: Color(0xFFFFFFFF),
+      background: Color(0xFFF2F1F6),
       onPrimary: Color(0xFF808080),
       outline: Color(0xFFD2D2D2),
       inversePrimary: Color(0xFF000000),
@@ -24,8 +24,8 @@ ThemeData darkMode = ThemeData(
       cursorColor: Color(0xFF000000),
     ),
     colorScheme: const ColorScheme.dark(
-      background: Color(0xFF000000),
-      primary: Color(0xFF141414),
+      primary: Color(0xFF000000),
+      background: Color(0xFF141414),
       onPrimary: Color(0xFF807F87),
       outline: Color(0xFF222222),
       inversePrimary: Color(0xFFFFFFFF),

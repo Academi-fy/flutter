@@ -75,7 +75,7 @@ class PopupItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: [
-              !this.isFancy
+              !isFancy
                   ? Container(
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.background,
@@ -88,10 +88,31 @@ class PopupItem extends StatelessWidget {
                   : SizedBox(
                       height: double.infinity,
                       width: double.infinity,
-                      child: AppBlurredBackground(colors: const [
-                        Colors.black,
-                        Color(0xFFC72988),
-                        Color(0xFF3600FF)
+                      child: AppBlurredBackground(brightness: 0.8, drops: [
+                        Drop(
+                          color: Colors.blue,
+                          positionX: 0,
+                          positionY: 0,
+                          width: 0.5,
+                          height: 0.5,
+                          opacity: 0.1,
+                        ),
+                        Drop(
+                          color: Colors.purple,
+                          positionX: 1,
+                          positionY: 1,
+                          width: 0.5,
+                          height: 0.5,
+                          opacity: 0.1,
+                        ),
+                        Drop(
+                            color: Colors.red,
+                            positionX: 0.1,
+                            positionY: 4,
+                            width: 0.5,
+                            height: 0.5,
+                            opacity: 0.1,
+                            spreadRadius: 0.005),
                       ]),
                     ),
               Container(

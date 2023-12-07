@@ -10,7 +10,7 @@ class AppEmptyMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
+      width: 230,
       constraints: const BoxConstraints(maxWidth: 300),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -30,8 +30,7 @@ class AppEmptyMessage extends StatelessWidget {
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.inversePrimary,
                           fontSize: 20,
-                          fontFamily: "Inter",
-                          fontWeight: FontWeight.bold)),
+                          fontWeight: FontWeight.w800)),
                 ),
                 Image.asset(width: 50, "assets/images/sad_face_emoji.png"),
               ],
