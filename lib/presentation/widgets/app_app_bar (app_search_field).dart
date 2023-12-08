@@ -87,45 +87,49 @@ class _AppSearchFieldState extends State<AppSearchField> {
         curve: Curves.bounceInOut,
         height: focused ? 500 : 50,
         decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(12)),
-        child: Row(
-          children: [
-            Flexible(
-              child: TextField(
-                onEditingComplete: () {
-                  print("TextField tapped");
-                  toggle();
-                },
-                textAlignVertical: TextAlignVertical.center,
-                controller: widget.controller,
-                style: TextStyle(
-                    fontSize: 14,
-                    color: Theme.of(context).colorScheme.inversePrimary,
-                    fontWeight: FontWeight.w500),
-                decoration: InputDecoration(
-                    isDense: true,
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.all(11),
-                      child: SvgPicture.asset(
-                        "assets/icons/Magnifer.svg",
-                        color: Theme.of(context).colorScheme.onPrimary,
+            color: Theme.of(context).colorScheme.background,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Theme.of(context).colorScheme.outline)),
+        child: Container(
+          alignment: Alignment.topCenter,
+          child: Row(
+            children: [
+              Flexible(
+                child: TextField(
+                  onEditingComplete: () {
+                    print("TextField tapped");
+                    toggle();
+                  },
+                  textAlignVertical: TextAlignVertical.center,
+                  controller: widget.controller,
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      fontWeight: FontWeight.w500),
+                  decoration: InputDecoration(
+                      isDense: true,
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      prefixIcon: Padding(
+                        padding: const EdgeInsets.all(11),
+                        child: SvgPicture.asset(
+                          "assets/icons/Magnifer.svg",
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
                       ),
-                    ),
-                    hintText: "Suchen",
-                    hintStyle: TextStyle(
-                        color: Theme.of(context).colorScheme.onPrimary,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500)),
+                      hintText: "Suchen",
+                      hintStyle: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500)),
+                ),
               ),
-            ),
-            if (widget.onFilterTapped != null)
-              Container(
-                  padding: const EdgeInsets.all(8),
-                  child: AppFilterButton(onTap: widget.onFilterTapped!))
-          ],
+              if (widget.onFilterTapped != null)
+                Container(
+                    padding: const EdgeInsets.all(8),
+                    child: AppFilterButton(onTap: widget.onFilterTapped!))
+            ],
+          ),
         ),
       ),
     );

@@ -10,7 +10,8 @@ class AppFilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        minWidth: 40,
+        maxWidth: 40,
+        maxHeight: 30,
       ),
       height: double.maxFinite,
       decoration: BoxDecoration(
@@ -19,7 +20,7 @@ class AppFilterButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(5),
         child: SvgPicture.asset(
-          "assets/icons/FilterBold.svg",
+          "assets/icons/ListDownMinimalistic.svg",
           color: Colors.white,
         ),
       ),

@@ -61,7 +61,7 @@ class ChatList extends StatelessWidget {
               ),
             ),
             const AppErrorMessage(
-                message: "Keine Chats gefunden",
+                message: "Keine Chats\ngefunden",
                 action:
                     "Starte einen neuen Chat über das Plus-Symbol oben rechts."),
             const Spacer()
