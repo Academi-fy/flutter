@@ -20,7 +20,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +79,7 @@ class Login extends StatelessWidget {
                   "Developed with ❤️ by Daniel and Linus",
                   style: TextStyle(
                       color: Theme.of(context).colorScheme.onBackground,
-                      fontWeight: FontWeight.bold),
+                      fontWeight: FontWeight.w600),
                 )),
           ],
         ),

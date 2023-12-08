@@ -20,7 +20,7 @@ class AppTextField extends StatelessWidget {
       alignment: Alignment.center,
       height: 60,
       decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.primary,
           border: Border.all(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(15)),
       child: TextField(

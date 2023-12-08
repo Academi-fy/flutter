@@ -22,7 +22,7 @@ class _WelcomeState extends State<Welcome> {
         future: userRepository.getUserById(widget.userId),
         builder: (context, snapshot) {
           return Scaffold(
-            backgroundColor: Theme.of(context).colorScheme.primary,
+            backgroundColor: Theme.of(context).colorScheme.background,
             body: Center(
               child: Container(
                 width: MediaQuery.of(context).size.width * 0.8,
