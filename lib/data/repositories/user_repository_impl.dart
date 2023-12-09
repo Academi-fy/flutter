@@ -29,8 +29,9 @@ class UserRepositoryImpl implements UserRepository {
       lastName: userDataModel.lastName!,
       avatar: userDataModel.avatar,
       type: userDataModel.type!,
-      classes: userDataModel.classes,
-      extraCourses: userDataModel.extraCourses,
+      classes: userDataModel.classes!,
+      extraCourses: userDataModel.extraCourses!,
+      blackboards: userDataModel.blackboards!,
     );
 
     return user;

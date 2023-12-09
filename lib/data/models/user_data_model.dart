@@ -1,11 +1,16 @@
+import 'package:rotteck_messenger/domain/entities/general/blackboard.dart';
+import 'package:rotteck_messenger/domain/entities/general/class.dart';
+import 'package:rotteck_messenger/domain/entities/general/course.dart';
+
 class UserDataModel {
   String? id;
   String? firstName;
   String? lastName;
   String? avatar;
   String? type;
-  List<String>? classes;
-  List<String>? extraCourses;
+  List<Class>? classes;
+  List<Course>? extraCourses;
+  List<Blackboard>? blackboards;
   DateTime? createdAt;
   DateTime? updatedAt;
 
@@ -17,6 +22,7 @@ class UserDataModel {
     this.type,
     this.classes,
     this.extraCourses,
+    this.blackboards,
     this.createdAt,
     this.updatedAt,
   });
@@ -30,12 +36,17 @@ class UserDataModel {
       type: json['type'].toString(),
       classes: json['classes'] != null
           ? (json['classes'] as List<dynamic>)
-              .map((item) => item.toString())
+              .map((item) => Class.fromJson(item as Map<String, dynamic>))
               .toList()
           : null,
       extraCourses: json['extra_courses'] != null
           ? (json['extra_courses'] as List<dynamic>)
-              .map((item) => item.toString())
+              .map((item) => Course.fromJson(item as Map<String, dynamic>))
+              .toList()
+          : null,
+      blackboards: json['blackboards'] != null
+          ? (json['blackboards'] as List<dynamic>)
+              .map((item) => Blackboard.fromJson(item as Map<String, dynamic>))
               .toList()
           : null,
       createdAt: json['createdAt'] != null
