@@ -22,6 +22,7 @@ class AppAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Row(
           children: [
@@ -85,7 +86,7 @@ class _AppSearchFieldState extends State<AppSearchField> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         curve: Curves.bounceInOut,
-        height: focused ? 500 : 50,
+        height: focused ? 50 : 50,
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background,
             borderRadius: BorderRadius.circular(12),

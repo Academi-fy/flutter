@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/presentation/screens/chat_list.dart';
+import 'package:rotteck_messenger/presentation/screens/chat_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_navigation_bar.dart';
 
 class MainView extends StatefulWidget {
@@ -11,7 +11,9 @@ class MainView extends StatefulWidget {
 
 class _MainViewState extends State<MainView> {
   List<Widget> pages = [
-    const ChatList(),
+    const ChatView(
+      isEmpty: false,
+    ),
     const Placeholder(),
     const Placeholder(),
     const Placeholder()
@@ -26,6 +28,7 @@ class _MainViewState extends State<MainView> {
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.background,
       body: pages[currentIndex],
       bottomNavigationBar: Container(

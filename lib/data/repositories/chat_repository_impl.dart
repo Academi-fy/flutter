@@ -6,10 +6,10 @@ import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
 
 import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
 
-class UserRepositoryImpl implements ChatRepository {
+class ChatRepositoryImpl implements ChatRepository {
   final MongoDBClient mongoDBClient;
 
-  UserRepositoryImpl({required this.mongoDBClient});
+  ChatRepositoryImpl({required this.mongoDBClient});
 
   @override
   Future<Chat> getChatById(String chatId) async {
