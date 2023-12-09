@@ -1,4 +1,5 @@
 class Chat {
+
   String? id;
   String? type;
   List<String>? targets;
@@ -18,4 +19,5 @@ class Chat {
     this.avatar,
     this.messages,
   });
+
 }
