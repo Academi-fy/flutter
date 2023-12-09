@@ -2,7 +2,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 import 'package:rotteck_messenger/data/database/mongo_db_client.dart';
 import 'package:rotteck_messenger/data/exceptions.dart';
 import 'package:rotteck_messenger/data/models/user_data_model.dart';
-import 'package:rotteck_messenger/domain/entities/user.dart';
+import 'package:rotteck_messenger/domain/entities/users/user.dart';
 import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 
 class UserRepositoryImpl implements UserRepository {

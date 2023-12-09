@@ -2,7 +2,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 import 'package:rotteck_messenger/data/database/mongo_db_client.dart';
 import 'package:rotteck_messenger/data/exceptions.dart';
 import 'package:rotteck_messenger/data/models/chat_data_model.dart';
-import 'package:rotteck_messenger/domain/entities/chat.dart';
+import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
 
 import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
 

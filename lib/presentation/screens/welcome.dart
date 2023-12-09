@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
-import 'package:rotteck_messenger/domain/entities/user.dart';
+import 'package:rotteck_messenger/domain/entities/users/user.dart';
 import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 import 'package:rotteck_messenger/presentation/screens/main_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
