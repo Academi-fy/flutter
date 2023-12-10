@@ -33,6 +33,23 @@ class ChatDataModel {
     );
   }
 
+  static dynamic _parseProperty(dynamic data) {
+    if (data is List) {
+
+      List<dynamic> items = [];
+      for(var item in data){
+        items.add(item);
+      }
+
+      return items;
+    } else if (data is String || data is Object) {
+      return data;
+    }
+    else {
+      return null;
+    }
+  }
+
   // Convert the Chat object to a Map
   Map<String, dynamic> toJson() {
     return {
