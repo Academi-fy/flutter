@@ -1,22 +1,19 @@
-import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
-import 'package:rotteck_messenger/domain/entities/general/class.dart';
-import 'package:rotteck_messenger/domain/entities/general/subject.dart';
-import 'package:rotteck_messenger/domain/entities/users/user.dart';
-
 class Course {
-
-  late List<User> members;
-  late List<Class> classes;
-  late User teacher;
-  late Chat chat;
-  late Subject subject;
+  final List<String>? members;
+  final List<String>? classes;
+  final String teacher;
+  final String chat;
+  final String subject;
+  final DateTime createdAt;
+  final DateTime updatedAt;
 
   Course({
-    required this.members,
-    required this.classes,
+    this.members,
+    this.classes,
     required this.teacher,
     required this.chat,
-    required this.subject
+    required this.subject,
+    required this.createdAt,
+    required this.updatedAt,
   });
-
 }
