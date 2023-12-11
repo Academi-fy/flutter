@@ -1,12 +1,16 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
-import 'package:rotteck_messenger/data/database/mongo_db_client.dart';
+import 'package:rotteck_messenger/data/database/http_client.dart';
+import 'package:rotteck_messenger/data/repositories/user_repository_impl.dart';
 
 final getIt = GetIt.instance;
 
 void setupDependencies() {
-  final connectionString = dotenv.env['MONGODB_SERVER_CONNECTION'];
+  final baseUrl = DotEnv().env['BASE_URL'];
 
-  final db = MongoDBClient(connectionString: connectionString!);
-  db.connect();
+  print("dependencies are getting set up");
+
+  getIt.registerSingleton<AppHTTPClient>(AppHTTPClient(baseUrl: baseUrl!));
+  getIt.registerSingleton<UserRepositoryImplementation>(
+      UserRepositoryImplementation(httpClient: getIt.get<AppHTTPClient>()));
 }

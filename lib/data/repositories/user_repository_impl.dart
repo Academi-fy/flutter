@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:http/http.dart';
 import 'package:rotteck_messenger/data/database/http_client.dart';
 import 'package:rotteck_messenger/data/models/user_data_model.dart';
 import 'package:rotteck_messenger/domain/entities/users/user.dart';

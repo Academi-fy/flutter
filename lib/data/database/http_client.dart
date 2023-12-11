@@ -1,9 +1,12 @@
 import 'dart:io';
+import 'package:http/http.dart' as http;
 
-class HttpClient {
+class AppHTTPClient {
   final String baseUrl;
 
   var _server;
+
+  AppHTTPClient({required this.baseUrl});
 
   Future<void> connect() async {
     _server = await HttpServer.bind(InternetAddress.anyIPv4, 3000);
@@ -14,29 +17,31 @@ class HttpClient {
   }
 
   Future<dynamic> get(String url) async {
-    // Implement GET request logic
-    final response = await HttpClient().get(Uri.parse('$baseUrl$url'));
-    return response;
+    final response = await http.get(Uri.parse('$baseUrl$url'));
+    return response.body;
   }
 
   Future<dynamic> post(String url, dynamic body) async {
-    // Implement POST request logic
-    final response = await HttpClient().post(Uri.parse('$baseUrl$url'),
-        headers: {'Content-Type': 'application/json'}, body: body);
-    return response;
+    final response = await http.post(
+      Uri.parse('$baseUrl$url'),
+      headers: {'Content-Type': 'application/json'},
+      body: body,
+    );
+    return response.body;
   }
 
   Future<dynamic> put(String url, dynamic body) async {
-    // Implement PUT request logic
-    final response = await HttpClient().put(Uri.parse('$baseUrl$url'),
-        headers: {'Content-Type': 'application/json'}, body: body);
-    return response;
+    final response = await http.put(
+      Uri.parse('$baseUrl$url'),
+      headers: {'Content-Type': 'application/json'},
+      body: body,
+    );
+    return response.body;
   }
 
   Future<dynamic> delete(String url) async {
-    // Implement DELETE request logic
-    final response = await HttpClient().delete(Uri.parse('$baseUrl$url'));
-    return response;
+    final response = await http.delete(Uri.parse('$baseUrl$url'));
+    return response.body;
   }
 
   void handleRequest(HttpRequest request) {

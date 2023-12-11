@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/domain/entities/chat.dart';
 
 class AppChatList extends StatelessWidget {
   const AppChatList({super.key});
@@ -24,6 +23,7 @@ class AppChatList extends StatelessWidget {
                             color: Theme.of(context).colorScheme.inversePrimary,
                             fontSize: 20,
                             fontWeight: FontWeight.w800)),
+                    const Spacer(),
                     Text(
                       "14:28",
                       style: TextStyle(
