@@ -1,6 +1,6 @@
 # rotteck_messenger
 
-Die App für den academy.fy messenger entwickelt in Flutter.
+Die App für den academi.fy messenger entwickelt in Flutter.
 
 Features:
  - Chats
