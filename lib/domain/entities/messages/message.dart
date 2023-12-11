@@ -1,25 +1,20 @@
 import 'dart:ffi';
-import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
-import 'package:rotteck_messenger/domain/entities/users/user.dart';
 
-class Message {
-
+class MessageEntity {
   late String id;
-  late User user;
-  late Chat chat;
-  late List<Object> content;
-  late List<Object> reactions;
-  late List<Message> edits;
+  late dynamic user;
+  late dynamic chat;
+  late List<dynamic> content;
+  late List<dynamic> reactions;
+  late List<dynamic> edits;
   late Long date;
 
-  Message({
-    required this.id,
-    required this.user,
-    required this.chat,
-    required this.content,
-    required this.reactions,
-    required this.edits,
-    required this.date
-  });
-
+  MessageEntity(
+      {required this.id,
+      required this.user,
+      required this.chat,
+      required this.content,
+      required this.reactions,
+      required this.edits,
+      required this.date});
 }

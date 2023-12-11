@@ -1,20 +1,14 @@
 import 'dart:ffi';
 
-import 'package:rotteck_messenger/domain/entities/events/event.dart';
-import 'package:rotteck_messenger/domain/entities/users/user.dart';
-
-class EventTicket {
-
-  late Event event;
-  late User buyer;
+class EventTicketEntity {
+  late dynamic event;
+  late dynamic buyer;
   late int price;
   late Long saleDate;
 
-  EventTicket({
-    required this.event,
-    required this.buyer,
-    required this.price,
-    required this.saleDate
-  });
-
+  EventTicketEntity(
+      {required this.event,
+      required this.buyer,
+      required this.price,
+      required this.saleDate});
 }

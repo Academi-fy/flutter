@@ -1,15 +1,8 @@
-import 'package:rotteck_messenger/domain/entities/general/course.dart';
-
-class Subject {
-
+class SubjectEntity {
   late String type;
   late String shortName;
-  late List<Course> courses;
+  late List<dynamic> courses;
 
-  Subject({
-    required this.type,
-    required this.shortName,
-    required this.courses
-  });
-
+  SubjectEntity(
+      {required this.type, required this.shortName, required this.courses});
 }

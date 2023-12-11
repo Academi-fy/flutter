@@ -1,11 +1,6 @@
-class ClubRequirement {
-
+class ClubRequirementEntity {
   late String emoji;
   late String description;
 
-  ClubRequirement({
-    required this.emoji,
-    required this.description
-  });
-
+  ClubRequirementEntity({required this.emoji, required this.description});
 }

@@ -1,13 +1,6 @@
-import 'package:rotteck_messenger/domain/entities/general/class.dart';
-
-class Grade {
-
+class GradeEntity {
   late int level;
-  late List<Class> classes;
+  late List<dynamic> classes;
 
-  Grade({
-    required this.level,
-    required this.classes
-  });
-
+  GradeEntity({required this.level, required this.classes});
 }
