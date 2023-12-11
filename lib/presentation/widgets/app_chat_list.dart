@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
 
 class AppChatList extends StatelessWidget {
   const AppChatList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    listItemBuilder(Chat chat) {
+    listItemBuilder(ChatEntity chat) {
       return Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,

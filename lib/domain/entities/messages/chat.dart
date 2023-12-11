@@ -1,15 +1,14 @@
-class Chat {
+class ChatEntity {
+  late String? id;
+  late String? type;
+  late List<String>? targets;
+  late List<String>? courses;
+  late List<String>? clubs;
+  late String? name;
+  late String? avatar;
+  late List<String>? messages;
 
-  String? id;
-  String? type;
-  List<String>? targets;
-  List<String>? courses;
-  List<String>? clubs;
-  String? name;
-  String? avatar;
-  List<String>? messages;
-
-  Chat({
+  ChatEntity({
     this.id,
     this.type,
     this.targets,
@@ -19,5 +18,4 @@ class Chat {
     this.avatar,
     this.messages,
   });
-
 }

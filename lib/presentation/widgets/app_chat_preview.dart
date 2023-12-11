@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/domain/entities/chat.dart';
+
+import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
 
 class AppChatPreview extends StatelessWidget {
-  final Chat chat;
+  final ChatEntity chat;
   const AppChatPreview({super.key, required this.chat});
 
   @override

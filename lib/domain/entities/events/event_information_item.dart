@@ -1,11 +1,6 @@
-class EventInformationItem {
-
+class EventInformationItemEntity {
   late String emoji;
   late String description;
 
-  EventInformationItem({
-    required this.emoji,
-    required this.description
-  });
-
+  EventInformationItemEntity({required this.emoji, required this.description});
 }

@@ -1,4 +1,4 @@
-class User {
+class UserEntitiy {
   late String id;
   late String firstName;
   late String lastName;
@@ -8,7 +8,7 @@ class User {
   late List<dynamic>? extraCourses;
   late List<dynamic>? blackboards;
 
-  User(
+  UserEntitiy(
       {required this.id,
       required this.firstName,
       required this.lastName,

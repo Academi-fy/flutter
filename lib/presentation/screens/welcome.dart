@@ -18,7 +18,7 @@ class _WelcomeState extends State<Welcome> {
   final userRepository = getIt<UserRepository>();
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<User>(
+    return FutureBuilder<UserEntitiy>(
         future: userRepository.getUserById(widget.userId),
         builder: (context, snapshot) {
           return Scaffold(

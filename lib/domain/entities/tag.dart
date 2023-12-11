@@ -1,11 +1,6 @@
-class Tag {
-
+class TagEntity {
   late String emoji;
   late String description;
 
-  Tag({
-    required this.emoji,
-    required this.description
-  });
-
+  TagEntity({required this.emoji, required this.description});
 }

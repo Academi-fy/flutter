@@ -1,13 +1,6 @@
-import 'package:rotteck_messenger/domain/entities/general/setup/school.dart';
-
-class SetupAccount {
-
+class SetupAccountEntity {
   late String schoolName;
-  late School school;
+  late dynamic school;
 
-  SetupAccount({
-    required this.schoolName,
-    required this.school
-  });
-
+  SetupAccountEntity({required this.schoolName, required this.school});
 }

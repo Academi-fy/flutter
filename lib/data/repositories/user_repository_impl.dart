@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:mongo_dart/mongo_dart.dart';
 import 'package:rotteck_messenger/data/database/http_client.dart';
 import 'package:rotteck_messenger/data/models/user_data_model.dart';
 import 'package:rotteck_messenger/domain/entities/users/user.dart';
@@ -8,11 +11,15 @@ class UserRepositoryImplementation extends UserRepository {
   UserRepositoryImplementation({required this.httpClient});
 
   @override
-  Future<User> getUserById(String userId) async {
-    final response = await httpClient.get('/users/$userId');
+  Future<UserEntitiy> getUserById(String userId) async {
+    final response = await httpClient.get('users');
     if (response.statusCode == 200) {
-      final UserDataModel userDataModel = UserDataModel.fromJson(response.body);
-      User user = User(
+      print(response.body.runtimeType);
+      final Map<String, List<dynamic>> decodedJson =
+          jsonDecode(response.body[1]);
+
+      final UserDataModel userDataModel = UserDataModel.fromJson(decodedJson);
+      UserEntitiy user = UserEntitiy(
           id: userDataModel.id,
           firstName: userDataModel.firstName,
           lastName: userDataModel.lastName,

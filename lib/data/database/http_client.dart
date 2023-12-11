@@ -18,7 +18,8 @@ class AppHTTPClient {
 
   Future<dynamic> get(String url) async {
     final response = await http.get(Uri.parse('$baseUrl$url'));
-    return response.body;
+    print(response.body);
+    return response;
   }
 
   Future<dynamic> post(String url, dynamic body) async {

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/domain/entities/messages/message.dart';
 
 class AppMessage extends StatelessWidget {
-
-final Message message;
+  final MessageEntity message;
 
   const AppMessage({super.key, required this.message});
 
