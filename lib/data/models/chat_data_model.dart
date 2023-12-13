@@ -22,7 +22,7 @@ class ChatDataModel {
   // Factory method to create a Chat object from a Map
   factory ChatDataModel.fromJson(Map<String, dynamic> json) {
     return ChatDataModel(
-      id: json['id'],
+      id: json['_id'],
       type: json['type'],
       targets: List<String>.from(json['targets'] ?? []),
       courses: List<String>.from(json['courses'] ?? []),
@@ -35,17 +35,15 @@ class ChatDataModel {
 
   static dynamic _parseProperty(dynamic data) {
     if (data is List) {
-
       List<dynamic> items = [];
-      for(var item in data){
+      for (var item in data) {
         items.add(item);
       }
 
       return items;
     } else if (data is String || data is Object) {
       return data;
-    }
-    else {
+    } else {
       return null;
     }
   }
