@@ -1,15 +1,20 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'chat_data_model.g.dart';
+
+@JsonSerializable()
 class ChatDataModel {
-  String? id;
-  String? type;
-  List<String>? targets;
-  List<String>? courses;
-  List<String>? clubs;
-  String? name;
-  String? avatar;
-  List<String>? messages;
+  late String id;
+  late String? type;
+  late List<dynamic>? targets;
+  late List<dynamic>? courses;
+  late List<dynamic>? clubs;
+  late String? name;
+  late String? avatar;
+  late List<dynamic>? messages;
 
   ChatDataModel({
-    this.id,
+    required this.id,
     this.type,
     this.targets,
     this.courses,
@@ -19,46 +24,8 @@ class ChatDataModel {
     this.messages,
   });
 
-  // Factory method to create a Chat object from a Map
-  factory ChatDataModel.fromJson(Map<String, dynamic> json) {
-    return ChatDataModel(
-      id: json['_id'],
-      type: json['type'],
-      targets: List<String>.from(json['targets'] ?? []),
-      courses: List<String>.from(json['courses'] ?? []),
-      clubs: List<String>.from(json['clubs'] ?? []),
-      name: json['name'],
-      avatar: json['avatar'],
-      messages: List<String>.from(json['messages'] ?? []),
-    );
-  }
+  factory ChatDataModel.fromJson(Map<String, dynamic> json) =>
+      _$ChatDataModelFromJson(json);
 
-  static dynamic _parseProperty(dynamic data) {
-    if (data is List) {
-      List<dynamic> items = [];
-      for (var item in data) {
-        items.add(item);
-      }
-
-      return items;
-    } else if (data is String || data is Object) {
-      return data;
-    } else {
-      return null;
-    }
-  }
-
-  // Convert the Chat object to a Map
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'type': type,
-      'targets': targets,
-      'courses': courses,
-      'clubs': clubs,
-      'name': name,
-      'avatar': avatar,
-      'messages': messages,
-    };
-  }
+  Map<String, dynamic> toJson() => _$ChatDataModelToJson(this);
 }
