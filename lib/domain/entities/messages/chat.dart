@@ -1,15 +1,15 @@
 class ChatEntity {
-  late String? id;
+  late String id;
   late String? type;
-  late List<String>? targets;
-  late List<String>? courses;
-  late List<String>? clubs;
+  late List<dynamic>? targets;
+  late List<dynamic>? courses;
+  late List<dynamic>? clubs;
   late String? name;
   late String? avatar;
-  late List<String>? messages;
+  late List<dynamic>? messages;
 
   ChatEntity({
-    this.id,
+    required this.id,
     this.type,
     this.targets,
     this.courses,

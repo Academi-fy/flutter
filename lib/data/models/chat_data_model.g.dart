@@ -8,7 +8,7 @@ part of 'chat_data_model.dart';
 
 ChatDataModel _$ChatDataModelFromJson(Map<String, dynamic> json) =>
     ChatDataModel(
-      id: json['id'] as String,
+      id: json['_id'] as String,
       type: json['type'] as String?,
       targets: json['targets'] as List<dynamic>?,
       courses: json['courses'] as List<dynamic>?,

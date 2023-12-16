@@ -9,10 +9,9 @@ class UserDataModel {
   late String lastName;
   late String? avatar;
   late String type;
-  late List<dynamic>? classes; // Can contain Class objects or Class IDs
-  late List<dynamic>? extraCourses; // Can contain Course objects or Course IDs
-  late List<dynamic>?
-      blackboards; // Can contain Blackboard objects or Blackboard IDs
+  late List<dynamic>? classes;
+  late List<dynamic>? extraCourses;
+  late List<dynamic>? blackboards;
 
   UserDataModel(
     this.id,
