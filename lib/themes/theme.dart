@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 ThemeData lightMode = ThemeData(
-    fontFamily: "Manrope",
+    fontFamily: "Inter",
     brightness: Brightness.light,
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xFF000000),
@@ -18,7 +18,7 @@ ThemeData lightMode = ThemeData(
     indicatorColor: const Color(0xFFE01717));
 
 ThemeData darkMode = ThemeData(
-    fontFamily: "Manrope",
+    fontFamily: "Inter",
     brightness: Brightness.dark,
     textSelectionTheme: const TextSelectionThemeData(
       cursorColor: Color(0xFF000000),

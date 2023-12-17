@@ -27,7 +27,7 @@ class AppBottomPopup extends StatelessWidget {
               _buildTitle(context, header!, description!),
             for (var item in children)
               Container(
-                  padding: const EdgeInsets.only(top: 8, bottom: 8),
+                  padding: const EdgeInsets.only(top: 6, bottom: 6),
                   child: item)
           ],
         ),
