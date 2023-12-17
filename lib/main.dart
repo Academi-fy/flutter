@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
-import 'package:rotteck_messenger/presentation/screens/login.dart';
+import 'package:rotteck_messenger/presentation/screens/login/login.dart';
 import 'package:rotteck_messenger/themes/theme.dart';
 
 Future<void> main() async {

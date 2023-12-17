@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rotteck_messenger/presentation/screens/chat_view.dart';
+import 'package:rotteck_messenger/presentation/screens/chat_view/chat_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_navigation_bar.dart';
 
 class MainView extends StatefulWidget {
