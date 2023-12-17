@@ -29,38 +29,37 @@ class ChatView extends StatelessWidget {
 
     void newChat() {}
 
+    void abort() {}
+
     void appBarItemTapped() {
       showModalBottomSheet<int>(
           backgroundColor: Colors.transparent,
           context: context,
           builder: (context) {
-            return AppBottomPopup(children: [
-              PopupItem(
-                  onTap: newChat,
-                  title: "Neuer Chat",
-                  description: "Zum Austausch mit einem Schüler"),
-              PopupItem(
-                  onTap: newGroup,
-                  title: "Neue Gruppe",
-                  description: "Zum Austausch mit mehreren Schülern"),
-              PopupItem(
-                onTap: newClub,
-                title: "Neue AG",
-                description: "Zum Austausch innerhalb einer AG",
-                isFancy: true,
-              )
-            ]);
+            return AppBottomPopup(
+                header: "Neuen Chat erstellen",
+                description:
+                    "Bitte wähle aus, für welchen Zweck der Chat genutzt werden soll.",
+                children: [
+                  PopupItem(header: "Einzelchat", onTap: newChat),
+                  PopupItem(header: "Gruppenchat", onTap: newGroup),
+                  PopupItem(header: "AG", onTap: newClub),
+                  PopupItem(
+                    header: "Zurück",
+                    onTap: abort,
+                    isDismiss: true,
+                  )
+                ]);
           });
     }
 
     return FutureBuilder<ChatEntity>(
         future: chatRepository.getChatById(chatId),
-        builder: (context, AsyncSnapshot<ChatEntity> snapshot) {
-          print(snapshot.data!.messages.runtimeType);
-
+        builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
           } else {
+            print(snapshot.data!.messages.runtimeType);
             return SafeArea(
               child: Center(
                 child: Column(

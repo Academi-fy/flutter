@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_blurred_gradient.dart';
 
 class AppBottomPopup extends StatelessWidget {
-  const AppBottomPopup({super.key, required this.children});
+  final String? header;
+  final String? description;
+  const AppBottomPopup(
+      {super.key, required this.children, this.header, this.description});
 
   final List<PopupItem> children;
 
@@ -12,23 +13,21 @@ class AppBottomPopup extends StatelessWidget {
     final currentTheme = Theme.of(context);
 
     return Container(
-      margin: const EdgeInsets.all(15),
-      clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(color: Colors.black.withOpacity(0.1), blurRadius: 30)
-          ],
-          color: currentTheme.colorScheme.background,
-          borderRadius: BorderRadius.circular(30)),
+          color: currentTheme.colorScheme.primary,
+          borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Container(
-        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 30),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _buildHandle(context),
+            _buildTopBar(context),
+            if (header != null && description != null)
+              _buildTitle(context, header!, description!),
             for (var item in children)
               Container(
-                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  padding: const EdgeInsets.only(top: 8, bottom: 8),
                   child: item)
           ],
         ),
@@ -36,16 +35,54 @@ class AppBottomPopup extends StatelessWidget {
     );
   }
 
-  Widget _buildHandle(BuildContext context) {
+  Widget _buildTitle(BuildContext context, String header, String description) {
+    final currentTheme = Theme.of(context);
+    return Column(
+      children: [
+        Text(
+          header,
+          style: TextStyle(
+              color: currentTheme.colorScheme.inversePrimary,
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          description,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              color: currentTheme.colorScheme.onPrimary,
+              fontSize: 13,
+              fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Container(
+          height: 1,
+          decoration: BoxDecoration(
+              color: currentTheme.colorScheme.background,
+              borderRadius: BorderRadius.circular(2.5)),
+        ),
+        const SizedBox(
+          height: 20,
+        )
+      ],
+    );
+  }
+
+  Widget _buildTopBar(BuildContext context) {
     final currentTheme = Theme.of(context);
     return FractionallySizedBox(
-      widthFactor: 0.15,
+      widthFactor: 0.1,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 12.0),
         child: Container(
           height: 5.0,
           decoration: BoxDecoration(
-              color: currentTheme.colorScheme.onPrimary,
+              color: currentTheme.colorScheme.background,
               borderRadius: const BorderRadius.all(Radius.circular(2.5))),
         ),
       ),
@@ -54,116 +91,42 @@ class AppBottomPopup extends StatelessWidget {
 }
 
 class PopupItem extends StatelessWidget {
+  final String header;
   final Function() onTap;
-  final String title;
-  final String description;
-  final bool isFancy;
+  final String? description;
+  final bool isDismiss;
   const PopupItem(
       {super.key,
-      required this.onTap,
-      required this.title,
-      required this.description,
-      this.isFancy = false});
+      required this.header,
+      this.description,
+      this.isDismiss = false,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final currentTheme = Theme.of(context);
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        constraints: const BoxConstraints(maxHeight: 86),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Stack(
-            children: [
-              !isFancy
-                  ? Container(
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                        border: Border.all(
-                            color: Theme.of(context).colorScheme.outline,
-                            width: 1),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    )
-                  : SizedBox(
-                      height: double.infinity,
-                      width: double.infinity,
-                      child: AppBlurredBackground(drops: [
-                        Drop(
-                          color: Color.fromARGB(255, 22, 31, 156),
-                          positionX: 0,
-                          positionY: 0,
-                          width: 0.5,
-                          height: 0.5,
-                          opacity: 0.1,
-                        ),
-                        Drop(
-                          color: Color.fromARGB(255, 148, 28, 40),
-                          positionX: 1,
-                          positionY: 1,
-                          width: 0.5,
-                          height: 0.5,
-                          opacity: 0.1,
-                        ),
-                        Drop(
-                            color: Colors.red,
-                            positionX: 0.1,
-                            positionY: 4,
-                            width: 0.5,
-                            height: 0.5,
-                            opacity: 0.1,
-                            spreadRadius: 0.005),
-                      ]),
-                    ),
-              Container(
-                color: Colors.transparent,
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          title,
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w800,
-                              color: isFancy
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .colorScheme
-                                      .inversePrimary),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          description,
-                          style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.w600,
-                              color: isFancy
-                                  ? Colors.white
-                                  : Theme.of(context)
-                                      .colorScheme
-                                      .inversePrimary),
-                        )
-                      ],
-                    ),
-                    const Spacer(),
-                    SvgPicture.asset(
-                      "assets/icons/AltArrowRight.svg",
-                      color: isFancy
-                          ? Colors.white
-                          : Theme.of(context).colorScheme.inversePrimary,
-                    )
-                  ],
-                ),
+        onTap: onTap(),
+        child: Container(
+          width: double.maxFinite,
+          decoration: BoxDecoration(
+              color: currentTheme.colorScheme.background,
+              borderRadius: BorderRadius.circular(15)),
+          height: 50,
+          padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+          child: Center(
+            child: Text(
+              header,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: isDismiss
+                    ? Theme.of(context).indicatorColor
+                    : Theme.of(context).colorScheme.inversePrimary,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
               ),
-            ],
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

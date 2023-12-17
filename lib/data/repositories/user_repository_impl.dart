@@ -9,6 +9,12 @@ class UserRepositoryImplementation extends UserRepository {
   UserRepositoryImplementation({required this.httpClient});
 
   @override
+
+// TODO: implement getUserByUsername
+// Future<UserEntitiy> getUserByUsername(String username) async {
+
+// }
+
   Future<UserEntitiy> getUserById(String userId) async {
     final response = await httpClient.get('users');
     if (response.statusCode == 200) {
