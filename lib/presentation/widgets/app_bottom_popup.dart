@@ -39,12 +39,15 @@ class AppBottomPopup extends StatelessWidget {
     final currentTheme = Theme.of(context);
     return Column(
       children: [
+        const SizedBox(
+          height: 5,
+        ),
         Text(
           header,
           style: TextStyle(
               color: currentTheme.colorScheme.inversePrimary,
               fontSize: 20,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.w600),
         ),
         const SizedBox(
           height: 5,
@@ -55,7 +58,7 @@ class AppBottomPopup extends StatelessWidget {
           style: TextStyle(
               color: currentTheme.colorScheme.onPrimary,
               fontSize: 13,
-              fontWeight: FontWeight.bold),
+              fontWeight: FontWeight.w600),
         ),
         const SizedBox(
           height: 20,
@@ -119,12 +122,11 @@ class PopupItem extends StatelessWidget {
               header,
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: isDismiss
-                    ? Theme.of(context).indicatorColor
-                    : Theme.of(context).colorScheme.inversePrimary,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+                  color: isDismiss
+                      ? Theme.of(context).indicatorColor
+                      : Theme.of(context).colorScheme.inversePrimary,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600),
             ),
           ),
         ));
