@@ -12,9 +12,9 @@ class AppPlainButton extends StatelessWidget {
       child: Text(
         label,
         style: TextStyle(
-            fontSize: 15,
+            fontSize: 12,
             fontWeight: FontWeight.w500,
-            color: Theme.of(context).colorScheme.onPrimary),
+            color: Theme.of(context).colorScheme.onBackground),
       ),
     );
   }

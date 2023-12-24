@@ -27,6 +27,7 @@ class AppTextField extends StatelessWidget {
         obscureText: obscureText,
         autocorrect: false,
         enableSuggestions: false,
+        cursorColor: Theme.of(context).highlightColor,
         style: TextStyle(
             color: Theme.of(context).colorScheme.inversePrimary,
             fontSize: 14,
@@ -38,8 +39,8 @@ class AppTextField extends StatelessWidget {
             hintText: text,
             hintStyle: TextStyle(
               color: Theme.of(context).colorScheme.onPrimary,
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
             ),
             icon: iconLocation != null
                 ? SvgPicture.asset(

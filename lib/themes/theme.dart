@@ -14,8 +14,8 @@ ThemeData lightMode = ThemeData(
       inversePrimary: Color(0xFF000000),
       onBackground: Color(0xFF808080),
     ),
-    highlightColor: const Color(0xFFE45C5C),
-    indicatorColor: const Color(0xFFE01717));
+    highlightColor: const Color(0xFFF83333),
+    indicatorColor: const Color(0xFFB80909));
 
 ThemeData darkMode = ThemeData(
     fontFamily: "Inter",
@@ -32,5 +32,5 @@ ThemeData darkMode = ThemeData(
       onBackground: Color(0xFF989898),
     ),
     focusColor: const Color(0xFFF2F1F6),
-    highlightColor: const Color(0xFFE45C5C),
-    indicatorColor: const Color(0xFFE01717));
+    highlightColor: const Color(0xFFF83333),
+    indicatorColor: const Color(0xFFB80909));
