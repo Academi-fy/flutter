@@ -34,7 +34,7 @@ class Login extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.9,
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,11 +81,32 @@ class Login extends StatelessWidget {
                 ),
                 Container(
                     alignment: Alignment.bottomCenter,
-                    child: Text(
-                      "Developed with ❤️ by Daniel and Linus",
-                      style: TextStyle(
-                          color: Theme.of(context).colorScheme.onBackground,
-                          fontWeight: FontWeight.w600),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Developed with",
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Theme.of(context).colorScheme.onBackground,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        Image.asset("assets/images/heart_emoji.png",
+                            height: 10, width: 10),
+                        const SizedBox(
+                          width: 2,
+                        ),
+                        Text(
+                          "by Daniel and Linus",
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Theme.of(context).colorScheme.onBackground,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     )),
               ],
             ),
