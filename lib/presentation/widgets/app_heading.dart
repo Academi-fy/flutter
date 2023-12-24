@@ -3,19 +3,15 @@ import 'package:flutter/material.dart';
 class AppHeading extends StatelessWidget {
   final String text;
   final String? caption;
-  final double size;
-  final double captionSize;
-  final Image? image;
-  final List<double> offset;
 
-  const AppHeading(
-      {super.key,
-      required this.text,
-      this.caption,
-      this.size = 40,
-      this.captionSize = 15,
-      this.image,
-      this.offset = const [190.0, -15]});
+  final Image? image;
+
+  const AppHeading({
+    super.key,
+    required this.text,
+    this.caption,
+    this.image,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -29,25 +25,32 @@ class AppHeading extends StatelessWidget {
           text,
           textAlign: TextAlign.start,
           style: TextStyle(
-              color: colorPrimary,
-              fontWeight: FontWeight.bold,
-              fontSize: size,
-              height: 1.2),
+            fontFamily: "MagicRetro",
+            color: colorPrimary,
+            fontSize: 40,
+          ),
         ),
         Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text(
-              caption != null ? caption! : "",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  color: colorSecondary,
-                  fontWeight: FontWeight.w500,
-                  fontSize: captionSize),
+            Flexible(
+              flex: 3,
+              child: Text(
+                caption != null ? caption! : "",
+                textAlign: TextAlign.start,
+                maxLines: null,
+                style: TextStyle(
+                    color: colorSecondary,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16),
+              ),
             ),
             const SizedBox(
-              width: 20,
+              width: 10,
             ),
-            if (image != null) SizedBox(width: 60, child: image!),
+            if (image != null)
+              Flexible(child: SizedBox(width: 60, child: image!)),
           ],
         ),
       ],

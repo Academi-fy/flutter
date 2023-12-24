@@ -24,7 +24,7 @@ class _WelcomeState extends State<Welcome> {
           return Scaffold(
             backgroundColor: Theme.of(context).colorScheme.background,
             body: Center(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.8,
                 height: MediaQuery.of(context).size.height * 0.6,
                 child: Column(
@@ -33,9 +33,9 @@ class _WelcomeState extends State<Welcome> {
                     Container(
                       alignment: Alignment.topLeft,
                       child: AppHeading(
-                        text: "Anmeldung\nErfolgreich",
+                        text: "Anmeldung Erfolgreich",
                         caption:
-                            "du kannst den Messenger jetzt\nmit deinem WebUntis-Konto\nverwenden.",
+                            "du kannst den Messenger jetzt mit deinem WebUntis-Konto verwenden.",
                         image: Image.asset("assets/images/party_emoji.png"),
                       ),
                     ),
@@ -68,15 +68,12 @@ class _WelcomeState extends State<Welcome> {
                     const SizedBox(
                       height: 20,
                     ),
-                    AppButton(
-                        iconLocation: "assets/icons/AltArrowRight.svg",
-                        text: "Weiter",
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const MainView()));
-                        })
+                    AppButton.highlightButton(context, "Weiter", () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainView()));
+                    }, "assets/icons/AltArrowRight.svg"),
                   ],
                 ),
               ),

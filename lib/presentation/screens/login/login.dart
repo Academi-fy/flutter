@@ -43,7 +43,7 @@ class Login extends StatelessWidget {
                       const Spacer(),
                       AppHeading(
                         text: "Willkommen",
-                        caption: "bitte melde dich mit deinen\nNutzerdaten an",
+                        caption: "bitte melde dich mit deinen Nutzerdaten an",
                         image: Image.asset("assets/images/handwave_emoji.png"),
                       ),
                       const Spacer(),
@@ -61,15 +61,11 @@ class Login extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-                      AppButton(
-                        text: "Anmelden",
-                        onTap: () {
-                          loginBloc.add(LoginButtonPressedEvent(
-                              username: _usernameController.text,
-                              password: _passController.text));
-                        },
-                        iconLocation: "assets/icons/AltArrowRight.svg",
-                      ),
+                      AppButton.highlightButton(context, "Anmelden", () {
+                        loginBloc.add(LoginButtonPressedEvent(
+                            username: _usernameController.text,
+                            password: _passController.text));
+                      }, "assets/icons/AltArrowRight.svg"),
                       const SizedBox(
                         height: 20,
                       ),

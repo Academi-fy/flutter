@@ -21,7 +21,6 @@ class AppTextField extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
-          border: Border.all(color: Theme.of(context).colorScheme.outline),
           borderRadius: BorderRadius.circular(15)),
       child: TextField(
         controller: controller,

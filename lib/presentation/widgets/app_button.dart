@@ -1,47 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_colors.dart';
 
 class AppButton extends StatelessWidget {
   final Function() onTap;
   final String text;
   final String? iconLocation;
-  final Color? color;
+  final Color backgroundColor;
+  final Color foregroundColor;
 
-  AppButton(
+  static AppButton simpleButton(
+      context, String text, Function() onTap, String? iconLocation) {
+    return AppButton(
+      text: text,
+      onTap: onTap,
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      iconLocation: iconLocation,
+    );
+  }
+
+  static AppButton blueButton(
+      context, contest, String text, Function() onTap, String? iconLocation) {
+    return AppButton(
+      text: text,
+      onTap: onTap,
+      backgroundColor: Colors.blue, //TODO: Change to themecolor
+      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      iconLocation: iconLocation,
+    );
+  }
+
+  static AppButton highlightButton(
+      context, String text, Function() onTap, String? iconLocation) {
+    return AppButton(
+      text: text,
+      onTap: onTap,
+      backgroundColor: Theme.of(context).highlightColor,
+      foregroundColor: Colors.white,
+      iconLocation: iconLocation,
+    );
+  }
+
+  const AppButton(
       {super.key,
       required this.text,
       required this.onTap,
       this.iconLocation,
-      this.color});
+      required this.backgroundColor,
+      required this.foregroundColor});
 
   @override
   Widget build(BuildContext context) {
-    Color buttonColor = color != null ? color! : AppColors.highlight;
+    double rightPadding = iconLocation != null ? 13 : 18;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-            color: buttonColor, borderRadius: BorderRadius.circular(50)),
+            color: backgroundColor, borderRadius: BorderRadius.circular(14)),
         child: Padding(
-          padding:
-              const EdgeInsets.only(left: 18, top: 13, bottom: 13, right: 13),
+          padding: EdgeInsets.only(
+              left: 18, top: 13, bottom: 13, right: rightPadding),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 text,
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white),
+                    color: foregroundColor),
               ),
               iconLocation != null
                   ? SvgPicture.asset(
                       iconLocation!,
-                      color: Colors.white,
+                      color: foregroundColor,
                     )
                   : const SizedBox(
                       width: 0,

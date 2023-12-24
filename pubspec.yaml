@@ -107,6 +107,10 @@ flutter:
           weight: 700
         - asset: assets/fonts/Manrope/Manrope-ExtraBold.ttf
           weight: 900
+    - family: MagicRetro
+      fonts:
+        - asset: assets/fonts/MagicRetro/magic-retro.ttf
+          weight: 400
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter/Inter-ExtraLight.ttf
