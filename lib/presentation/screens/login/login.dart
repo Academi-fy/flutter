@@ -4,6 +4,8 @@ import 'package:rotteck_messenger/presentation/screens/login/bloc/login_bloc.dar
 import 'package:rotteck_messenger/presentation/screens/welcome.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_plain_button.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_popup/app_popup_message.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_popup/popup_helper.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_textfield.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
@@ -73,6 +75,12 @@ class Login extends StatelessWidget {
                         label: "Passwort vergessen?",
                         onTap: () {
                           loginBloc.add(ForgotButtonPressedEvent());
+                          PopupHelper.showCustomPopup(
+                            context,
+                            AppPopupMessage.generateError(
+                                "Hoppla, da ist etwas schiefgelaufen...",
+                                "...bitte überprüfe Benutzernamen und Passwort!"),
+                          );
                         },
                       ),
                       const Spacer(),
@@ -80,34 +88,35 @@ class Login extends StatelessWidget {
                   ),
                 ),
                 Container(
-                    alignment: Alignment.bottomCenter,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Developed with",
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Theme.of(context).colorScheme.onBackground,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        const SizedBox(
-                          width: 2,
-                        ),
-                        Image.asset("assets/images/heart_emoji.png",
-                            height: 10, width: 10),
-                        const SizedBox(
-                          width: 2,
-                        ),
-                        Text(
-                          "by Daniel and Linus",
-                          style: TextStyle(
-                              fontSize: 10,
-                              color: Theme.of(context).colorScheme.onBackground,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ],
-                    )),
+                  alignment: Alignment.bottomCenter,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Developed with",
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Image.asset("assets/images/heart_emoji.png",
+                          height: 10, width: 10),
+                      const SizedBox(
+                        width: 2,
+                      ),
+                      Text(
+                        "by Daniel and Linus",
+                        style: TextStyle(
+                            fontSize: 10,
+                            color: Theme.of(context).colorScheme.onBackground,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
