@@ -12,9 +12,19 @@ class PopupHelper {
 
       Overlay.of(context).insert(_overlayEntry!);
       toastTimer = Timer(const Duration(seconds: 5), () {
-        _overlayEntry!.remove();
-        _overlayEntry = null;
+        if (_overlayEntry != null) {
+          _overlayEntry!.remove();
+          _overlayEntry = null;
+        }
       });
+    }
+  }
+
+  static dispose() {
+    if (_overlayEntry != null) {
+      if (toastTimer != null) toastTimer!.cancel();
+      _overlayEntry!.remove();
+      _overlayEntry = null;
     }
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_popup/popup_helper.dart';
 
 class AppPopupMessage extends StatelessWidget {
   final String heading;
@@ -17,8 +18,11 @@ class AppPopupMessage extends StatelessWidget {
       this.actions,
       required this.highlightColor});
 
-  static AppPopupMessage generateError(String heading, String caption,
-      [List<AppButton>? actions]) {
+  static AppPopupMessage generateError(
+    String heading,
+    String caption, [
+    List<AppButton>? actions,
+  ]) {
     return AppPopupMessage(
       heading: heading,
       caption: caption,
@@ -87,11 +91,16 @@ class AppPopupMessage extends StatelessWidget {
               const SizedBox(
                 width: 15,
               ),
-              SizedBox(
-                  width: 13,
-                  height: 13,
-                  child: SvgPicture.asset("assets/icons/cancel.svg",
-                      color: currentTheme.colorScheme.onPrimary)),
+              GestureDetector(
+                onTap: () {
+                  PopupHelper.dispose();
+                },
+                child: SizedBox(
+                    width: 13,
+                    height: 13,
+                    child: SvgPicture.asset("assets/icons/cancel.svg",
+                        color: currentTheme.colorScheme.onPrimary)),
+              ),
             ],
           ),
           const SizedBox(
