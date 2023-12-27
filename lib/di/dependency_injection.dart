@@ -2,8 +2,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:rotteck_messenger/data/database/http_client.dart';
 import 'package:rotteck_messenger/data/repositories/chat_repository_impl.dart';
+import 'package:rotteck_messenger/data/repositories/user_account_repository_impl.dart';
 import 'package:rotteck_messenger/data/repositories/user_repository_impl.dart';
 import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
+import 'package:rotteck_messenger/domain/repositories/user_account_repository.dart';
 import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 
 final getIt = GetIt.instance;
@@ -19,4 +21,7 @@ void setupDependencies() async {
       UserRepositoryImplementation(httpClient: getIt.get<AppHTTPClient>()));
   getIt.registerSingleton<ChatRepository>(
       ChatRepositoryImplementation(httpClient: getIt.get<AppHTTPClient>()));
+  getIt.registerSingleton<UserAccountRepository>(
+      UserAccountRepositoryImplementation(
+          httpClient: getIt.get<AppHTTPClient>()));
 }

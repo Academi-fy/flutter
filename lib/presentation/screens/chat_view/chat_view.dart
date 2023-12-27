@@ -3,9 +3,10 @@ import 'package:rotteck_messenger/di/dependency_injection.dart';
 import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
 import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_app_bar.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_bottom_popup.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_bottom_button_popup.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_chat_list.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_error_message.dart';
+import 'package:rotteck_messenger/presentation/widgets/entries/bottom_popup_entry.dart';
 
 class ChatView extends StatelessWidget {
   final bool isEmpty;
@@ -32,25 +33,23 @@ class ChatView extends StatelessWidget {
     void abort() {}
 
     void appBarItemTapped() {
-      showModalBottomSheet<int>(
-          backgroundColor: Colors.transparent,
-          context: context,
-          builder: (context) {
-            return AppBottomPopup(
-                header: "Neuen Chat erstellen",
-                description:
-                    "Bitte wähle aus, für welchen Zweck der Chat genutzt werden soll.",
-                children: [
-                  PopupItem(header: "Einzelchat", onTap: newChat),
-                  PopupItem(header: "Gruppenchat", onTap: newGroup),
-                  PopupItem(header: "AG", onTap: newClub),
-                  PopupItem(
-                    header: "Zurück",
-                    onTap: abort,
-                    isDismiss: true,
-                  )
-                ]);
-          });
+      BottomPopupEntry(
+              child: AppBottomPopup(
+                  header: "Neuen Chat erstellen",
+                  description:
+                      "Bitte wähle aus, für welchen Zweck der Chat genutzt werden soll.",
+                  children: [
+                    PopupItem(header: "Einzelchat", onTap: newChat),
+                    PopupItem(header: "Gruppenchat", onTap: newGroup),
+                    PopupItem(header: "AG", onTap: newClub),
+                    PopupItem(
+                      header: "Zurück",
+                      onTap: abort,
+                      isDismiss: true,
+                    )
+                  ]),
+              context: context)
+          .generatePopup();
     }
 
     return FutureBuilder<ChatEntity>(

@@ -1,4 +1,5 @@
 class UserAccountEntity {
+  late String id;
   late dynamic user;
   late String username;
   late String password;
@@ -6,7 +7,8 @@ class UserAccountEntity {
   late List<dynamic> permissions;
 
   UserAccountEntity(
-      {required this.user,
+      {required this.id,
+      required this.user,
       required this.username,
       required this.password,
       this.settings,

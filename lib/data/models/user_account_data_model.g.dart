@@ -9,6 +9,7 @@ part of 'user_account_data_model.dart';
 UserAccountDataModel _$UserAccountDataModelFromJson(
         Map<String, dynamic> json) =>
     UserAccountDataModel(
+      id: json['id'],
       user: json['user'],
       username: json['username'] as String,
       password: json['password'] as String,
@@ -19,6 +20,7 @@ UserAccountDataModel _$UserAccountDataModelFromJson(
 Map<String, dynamic> _$UserAccountDataModelToJson(
         UserAccountDataModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'user': instance.user,
       'username': instance.username,
       'password': instance.password,

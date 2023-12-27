@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
@@ -22,7 +23,16 @@ class AppHTTPClient {
     return response;
   }
 
-  Future<dynamic> post(String url, dynamic body) async {
+  Future<dynamic> getWithBody(String url, dynamic body) async {
+    final uri = Uri.parse('$baseUrl$url');
+    final request = await HttpClient().openUrl("GET", uri);
+    request.headers.set("Content-Type", "application/json");
+    request.write(jsonEncode(body));
+    final response = await request.close();
+    return response;
+  }
+
+  Future<dynamic> post(String url, Map<String, dynamic> body) async {
     final response = await http.post(
       Uri.parse('$baseUrl$url'),
       headers: {'Content-Type': 'application/json'},

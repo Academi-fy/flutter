@@ -8,8 +8,8 @@ class AppButton extends StatelessWidget {
   final Color backgroundColor;
   final Color foregroundColor;
 
-  static AppButton simpleButton(
-      context, String text, Function() onTap, String? iconLocation) {
+  static AppButton simpleButton(context, String text, Function() onTap,
+      [String? iconLocation]) {
     return AppButton(
       text: text,
       onTap: onTap,
@@ -19,8 +19,8 @@ class AppButton extends StatelessWidget {
     );
   }
 
-  static AppButton blueButton(
-      context, contest, String text, Function() onTap, String? iconLocation) {
+  static AppButton blueButton(context, contest, String text, Function() onTap,
+      [String? iconLocation]) {
     return AppButton(
       text: text,
       onTap: onTap,
@@ -30,8 +30,8 @@ class AppButton extends StatelessWidget {
     );
   }
 
-  static AppButton highlightButton(
-      context, String text, Function() onTap, String? iconLocation) {
+  static AppButton highlightButton(context, String text, Function() onTap,
+      [String? iconLocation]) {
     return AppButton(
       text: text,
       onTap: onTap,
