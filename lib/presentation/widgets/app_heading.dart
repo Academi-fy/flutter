@@ -43,7 +43,7 @@ class AppHeading extends StatelessWidget {
                 style: TextStyle(
                     color: colorSecondary,
                     fontWeight: FontWeight.w500,
-                    fontSize: 16),
+                    fontSize: 12),
               ),
             ),
             const SizedBox(

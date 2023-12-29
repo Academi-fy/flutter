@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
-import 'package:rotteck_messenger/domain/entities/messages/chat.dart';
-import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_app_bar.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_bottom_button_popup.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_chat_list.dart';

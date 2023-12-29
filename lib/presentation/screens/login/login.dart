@@ -4,10 +4,10 @@ import 'package:rotteck_messenger/presentation/screens/login/bloc/login_bloc.dar
 import 'package:rotteck_messenger/presentation/screens/welcome.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_plain_button.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_popup/app_popup_message.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_popup/popup_helper.dart';
+import 'package:rotteck_messenger/presentation/widgets/app_popup_message.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_textfield.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
+import 'package:rotteck_messenger/presentation/widgets/entries/timed_message_popup_entry.dart';
 
 class Login extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
@@ -75,7 +75,7 @@ class Login extends StatelessWidget {
                         label: "Passwort vergessen?",
                         onTap: () {
                           loginBloc.add(ForgotButtonPressedEvent());
-                          PopupHelper.showCustomPopup(
+                          TimedMessagePopupEntry.showCustomPopup(
                             context,
                             AppPopupMessage.generateError(
                                 "Hoppla, da ist etwas schiefgelaufen...",

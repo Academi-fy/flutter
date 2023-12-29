@@ -1,27 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
-import 'package:rotteck_messenger/data/database/http_client.dart';
-import 'package:rotteck_messenger/data/repositories/chat_repository_impl.dart';
-import 'package:rotteck_messenger/data/repositories/user_account_repository_impl.dart';
-import 'package:rotteck_messenger/data/repositories/user_repository_impl.dart';
-import 'package:rotteck_messenger/domain/repositories/chat_repository.dart';
-import 'package:rotteck_messenger/domain/repositories/user_account_repository.dart';
-import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
+import 'package:rotteck_messenger/data/fake_database/mock_interceptor.dart';
+import 'package:rotteck_messenger/data/repositories/user_repository.dart';
 
 final getIt = GetIt.instance;
 
 void setupDependencies() async {
   await dotenv.load(fileName: ".env");
-  final baseUrl = dotenv.env['BASE_URL'];
+  final baseUrl = dotenv.env['assets/json'];
 
   print("dependencies are getting set up");
 
-  getIt.registerSingleton<AppHTTPClient>(AppHTTPClient(baseUrl: baseUrl!));
-  getIt.registerSingleton<UserRepository>(
-      UserRepositoryImplementation(httpClient: getIt.get<AppHTTPClient>()));
-  getIt.registerSingleton<ChatRepository>(
-      ChatRepositoryImplementation(httpClient: getIt.get<AppHTTPClient>()));
-  getIt.registerSingleton<UserAccountRepository>(
-      UserAccountRepositoryImplementation(
-          httpClient: getIt.get<AppHTTPClient>()));
+  getIt.registerSingleton<Interceptor>(MockInterceptor());
+  getIt.registerSingleton(Dio(BaseOptions(baseUrl: baseUrl!))
+    ..interceptors.add(getIt<Interceptor>()));
+  getIt.registerSingleton(UserRepository());
 }

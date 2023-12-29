@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class BottomPopupEntry {
   final BuildContext context;
-
   final Widget child;
   final Color backgroundColor;
   final bool showFrame;

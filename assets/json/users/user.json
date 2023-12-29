@@ -1,0 +1,38 @@
+{
+    "id": "1",
+    "createdAt": "2023-01-01T12:00:00Z",
+    "updatedAt": "2023-01-02T14:30:00Z",
+    "avatar": "path/to/avatar.jpg",
+    "clubs": [
+        "Club1",
+        "Club2"
+    ],
+    "courses": [
+        "Course1",
+        "Course2"
+    ],
+    "events": [
+        "Event1",
+        "Event2"
+    ],
+    "firstName": "John",
+    "lastName": "Doe",
+    "messages": [
+        "Message1",
+        "Message2"
+    ],
+    "schools": [
+        "School1",
+        "School2"
+    ],
+    "type": "student",
+    "userAccount": "john.doe@example.com",
+    "chats": [
+        "Chat1",
+        "Chat2"
+    ],
+    "eventTickets": [
+        "Ticket1",
+        "Ticket2"
+    ]
+}

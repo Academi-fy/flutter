@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
-import 'package:rotteck_messenger/presentation/widgets/app_popup/popup_helper.dart';
+import 'package:rotteck_messenger/presentation/widgets/entries/timed_message_popup_entry.dart';
 
 class AppPopupMessage extends StatelessWidget {
   final String heading;
@@ -93,7 +93,7 @@ class AppPopupMessage extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  PopupHelper.dispose();
+                  TimedMessagePopupEntry.dispose();
                 },
                 child: SizedBox(
                     width: 13,
@@ -123,11 +123,4 @@ class AppPopupMessage extends StatelessWidget {
   }
 
   buildError() {}
-}
-
-enum Type {
-  live,
-  error,
-  warning,
-  info,
 }

@@ -1,0 +1,38 @@
+{
+    "id": "2",
+    "createdAt": "2023-01-03T10:45:00Z",
+    "updatedAt": "2023-01-04T08:15:00Z",
+    "avatar": null,
+    "clubs": [
+        "Club3",
+        "Club4"
+    ],
+    "courses": [
+        "Course3",
+        "Course4"
+    ],
+    "events": [
+        "Event3",
+        "Event4"
+    ],
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "messages": [
+        "Message3",
+        "Message4"
+    ],
+    "schools": [
+        "School3",
+        "School4"
+    ],
+    "type": "teacher",
+    "userAccount": "jane.smith@example.com",
+    "chats": [
+        "Chat3",
+        "Chat4"
+    ],
+    "eventTickets": [
+        "Ticket3",
+        "Ticket4"
+    ]
+}

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:rotteck_messenger/data/models/user_model.dart';
+import 'package:rotteck_messenger/data/repositories/user_repository.dart';
 import 'package:rotteck_messenger/di/dependency_injection.dart';
-import 'package:rotteck_messenger/domain/entities/users/user.dart';
-import 'package:rotteck_messenger/domain/repositories/user_repository.dart';
 import 'package:rotteck_messenger/presentation/screens/main_view.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_button.dart';
 import 'package:rotteck_messenger/presentation/widgets/app_heading.dart';
 
 class Welcome extends StatefulWidget {
-  const Welcome({super.key, this.userId = "656cf418a7b20d606810c92c"});
-  final String userId;
+  const Welcome({super.key});
 
   @override
   State<Welcome> createState() => _WelcomeState();
@@ -18,8 +17,8 @@ class _WelcomeState extends State<Welcome> {
   final userRepository = getIt<UserRepository>();
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<UserEntitiy>(
-        future: userRepository.getUserById(widget.userId),
+    return FutureBuilder<UserModel>(
+        future: userRepository.getUserById("1"),
         builder: (context, snapshot) {
           return Scaffold(
             backgroundColor: Theme.of(context).colorScheme.background,
