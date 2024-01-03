@@ -8,7 +8,7 @@ final getIt = GetIt.instance;
 
 void setupDependencies() async {
   await dotenv.load(fileName: ".env");
-  final baseUrl = dotenv.env['assets/json'];
+  final baseUrl = dotenv.env['BASE_URL'];
 
   print("dependencies are getting set up");
 

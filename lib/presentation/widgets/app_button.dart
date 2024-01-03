@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
       text: text,
       onTap: onTap,
       backgroundColor: Theme.of(context).colorScheme.primary,
-      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       iconLocation: iconLocation,
     );
   }
@@ -60,7 +60,7 @@ class AppButton extends StatelessWidget {
             color: backgroundColor, borderRadius: BorderRadius.circular(11)),
         child: Padding(
           padding: EdgeInsets.only(
-              left: 18, top: 13, bottom: 13, right: rightPadding),
+              left: 18, top: 15, bottom: 15, right: rightPadding),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +69,7 @@ class AppButton extends StatelessWidget {
                 text,
                 style: TextStyle(
                     fontSize: 14,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: foregroundColor),
               ),
               iconLocation != null
