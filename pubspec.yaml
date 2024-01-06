@@ -45,6 +45,9 @@ dependencies:
   flutter_bloc: ^8.1.3
   flutter_animate: ^4.3.0
   dio: ^5.4.0
+  clean_popupbutton:
+    path: /Users/linus/Desktop/rotteck_messenger/packages/clean_popupbutton
+  flutter_launcher_icons: ^0.13.1
 
   
   
@@ -57,6 +60,9 @@ dev_dependencies:
   json_serializable: ^6.7.1
   build_runner: ^2.4.7
 
+
+
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -64,6 +70,12 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   objectbox_generator: any
+
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: assets/app_icon/appIcon.png
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -81,6 +93,7 @@ flutter:
     - .env
     - assets/images/
     - assets/icons/
+    - assets/json/users/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
